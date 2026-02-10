@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://georgiantrip.smarketer.ge/sitemap.xml
