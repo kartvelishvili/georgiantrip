@@ -79,22 +79,29 @@ const BookingStatusPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20 pt-24">
+    <div className="min-h-screen bg-gray-50 pb-20">
       <Helmet>
         <title>Booking #{bookingId.slice(0, 8)} - GeorgianTrip</title>
       </Helmet>
 
-      <div className="max-w-3xl mx-auto px-4">
-        <Button variant="ghost" className="mb-4 -ml-2 text-gray-600 hover:text-gray-900" onClick={() => navigate('/search-results')}>
-          <ArrowLeft className="w-4 h-4 mr-2" /> Back to Search
-        </Button>
+      {/* Dark header */}
+      <div className="bg-gray-950 pt-24 pb-8 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-gray-950 to-gray-950 z-0" />
+        <div className="max-w-3xl mx-auto px-4 relative z-10">
+          <Button variant="ghost" className="mb-4 -ml-2 text-gray-400 hover:text-white hover:bg-white/10" onClick={() => navigate('/search-results')}>
+            <ArrowLeft className="w-4 h-4 mr-2" /> Back to Search
+          </Button>
 
-        <div className="flex items-center justify-between mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Booking Details</h1>
-          <Badge className={`${statusColors[booking.status] || 'bg-gray-100'} border-0 px-3 py-1 capitalize`}>
-            {booking.status}
-          </Badge>
+          <div className="flex items-center justify-between">
+            <h1 className="text-2xl font-bold text-white">Booking Details</h1>
+            <Badge className={`${statusColors[booking.status] || 'bg-gray-100'} border-0 px-3 py-1 capitalize`}>
+              {booking.status}
+            </Badge>
+          </div>
         </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 pt-8">
 
         {/* Alert for Pending */}
         {booking.status === 'pending' && (

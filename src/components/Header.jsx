@@ -32,8 +32,8 @@ const Header = ({ onNavigate }) => {
   const isHomePage = location.pathname === '/';
   
   const headerBgClass = isHomePage && !scrolled 
-    ? "bg-transparent backdrop-blur-[2px]" 
-    : "bg-[#064E3B] shadow-lg border-b border-green-800/30";
+    ? "bg-transparent" 
+    : "bg-gray-950/95 backdrop-blur-xl shadow-lg border-b border-white/5";
 
   const navLinks = [
     { name: t('home'), path: '/' },
@@ -132,7 +132,7 @@ const Header = ({ onNavigate }) => {
                   </Button>
                 </Link>
                 <Link to="/driver/login">
-                  <Button className="rounded-full px-6 font-bold shadow-lg shadow-black/20 bg-white text-green-800 hover:bg-gray-100 transition-all transform hover:-translate-y-0.5 border border-transparent">
+                  <Button className="rounded-full px-6 font-bold shadow-lg shadow-green-500/20 bg-green-500 text-white hover:bg-green-400 transition-all transform hover:-translate-y-0.5 border border-green-400/50">
                     Become a Driver
                   </Button>
                 </Link>
@@ -152,7 +152,7 @@ const Header = ({ onNavigate }) => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-0 bg-[#064E3B] z-40 lg:hidden flex flex-col animate-in slide-in-from-right-10 duration-200">
+        <div className="fixed inset-0 top-0 bg-gray-950 z-40 lg:hidden flex flex-col animate-in slide-in-from-right-10 duration-200">
           <div className="flex items-center justify-between p-4 border-b border-white/10">
               <img 
                  src="https://i.postimg.cc/mgptfmRm/1-edited-1-1-qy5zwzzwpu0j6dxk2m4luqhe8smsejxkfebuablb4a.png" 
@@ -170,7 +170,7 @@ const Header = ({ onNavigate }) => {
                   key={link.name}
                   to={link.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xl font-bold text-white text-left py-4 border-b border-white/10 flex justify-between items-center hover:text-green-300 transition-colors"
+                  className="text-xl font-bold text-white text-left py-4 border-b border-white/10 flex justify-between items-center hover:text-green-400 transition-colors"
                 >
                   {link.name}
                   <ChevronDown className="w-5 h-5 -rotate-90 text-white/50" />
@@ -188,7 +188,7 @@ const Header = ({ onNavigate }) => {
               ) : (
                 <div className="grid grid-cols-1 gap-4">
                   <Link to="/driver/login" onClick={() => setMobileMenuOpen(false)}>
-                    <Button className="w-full bg-white text-green-800 hover:bg-gray-100 py-6 rounded-xl text-lg font-bold shadow-lg">
+                    <Button className="w-full bg-green-500 text-white hover:bg-green-400 py-6 rounded-xl text-lg font-bold shadow-lg border border-green-400/50">
                       Join as Driver
                     </Button>
                   </Link>

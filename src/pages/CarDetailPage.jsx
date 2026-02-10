@@ -90,20 +90,27 @@ const CarDetailPage = () => {
   if (!car) return <div className="text-center py-20">Car not found</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20 pt-20">
+    <div className="min-h-screen bg-gray-50 pb-20">
        <Helmet>
           <title>{car.make} {car.model} | Booking</title>
        </Helmet>
+
+       {/* Dark header */}
+       <div className="bg-gray-950 pt-24 pb-8 relative overflow-hidden">
+         <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-gray-950 to-gray-950 z-0" />
+         <div className="container-custom relative z-10">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate(-1)} 
+              className="mb-4 text-gray-400 hover:text-white hover:bg-white/10 pl-2"
+            >
+               <ArrowLeft className="w-5 h-5 mr-2" /> Back to Search
+            </Button>
+            <h1 className="text-3xl font-heading font-bold text-white">{car.make} {car.model}</h1>
+         </div>
+       </div>
        
-       <div className="container-custom">
-          {/* Back Button */}
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate(-1)} 
-            className="mb-6 text-gray-500 hover:text-gray-900 pl-0 hover:bg-transparent"
-          >
-             <ArrowLeft className="w-5 h-5 mr-2" /> Back to Search
-          </Button>
+       <div className="container-custom pt-8">
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
              

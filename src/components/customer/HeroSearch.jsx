@@ -194,15 +194,15 @@ const HeroSearch = ({ onSearch, compact = false, initialData }) => {
   // --- HERO MODE ---
   return (
     <div className="w-full max-w-6xl mx-auto">
-      {/* Search Box - Text is now in HeroSection parent */}
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <LocationDropdown 
             label={t('startLocation')}
             placeholder="City, Airport, or Hotel..."
             value={searchData.startLocation}
             onChange={(v) => setSearchData({...searchData, startLocation: v})}
-            iconColor="text-green-600"
+            iconColor="text-green-400"
+            variant="dark"
           />
           
           <LocationDropdown 
@@ -210,7 +210,8 @@ const HeroSearch = ({ onSearch, compact = false, initialData }) => {
             placeholder="Where are you going?"
             value={searchData.endLocation}
             onChange={(v) => setSearchData({...searchData, endLocation: v})}
-            iconColor="text-red-500"
+            iconColor="text-red-400"
+            variant="dark"
           />
         </div>
 
@@ -222,11 +223,12 @@ const HeroSearch = ({ onSearch, compact = false, initialData }) => {
                   placeholder="Enter stop location..."
                   value={stop}
                   onChange={(v) => updateStop(index, v)}
-                  iconColor="text-yellow-500"
+                  iconColor="text-yellow-400"
+                  variant="dark"
                 />
               </div>
               <div className="flex items-end pb-1">
-                <Button variant="ghost" size="icon" onClick={() => removeStop(index)} className="h-12 w-12 text-gray-400 hover:text-red-500 rounded-xl">
+                <Button variant="ghost" size="icon" onClick={() => removeStop(index)} className="h-12 w-12 text-gray-400 hover:text-red-400 rounded-xl">
                   <X className="w-5 h-5" />
                 </Button>
               </div>
@@ -243,19 +245,19 @@ const HeroSearch = ({ onSearch, compact = false, initialData }) => {
                 value={searchData.date}
                 min={today}
                 onChange={(e) => setSearchData({ ...searchData, date: e.target.value })}
-                className="h-12 pl-10 bg-white border-gray-200 rounded-xl shadow-sm text-base hover:border-green-400 focus:border-green-600 transition-colors"
+                className="h-12 pl-10 bg-white/10 border-white/20 text-white rounded-xl text-base hover:border-green-400/50 focus:border-green-400 transition-colors placeholder:text-gray-400"
               />
             </div>
           </div>
           
           <div className="md:col-span-3 relative">
-              <Button variant="outline" onClick={addStop} className="w-full h-12 border-dashed border-gray-300 text-gray-500 hover:text-green-600 hover:border-green-600 hover:bg-green-50 rounded-xl transition-all">
+              <Button variant="outline" onClick={addStop} className="w-full h-12 border-dashed border-white/20 text-gray-300 hover:text-green-400 hover:border-green-400/50 hover:bg-green-500/10 rounded-xl transition-all">
               <Plus className="w-4 h-4 mr-2" /> {t('addStop')}
             </Button>
           </div>
 
           <div className="md:col-span-4 relative">
-              <Button onClick={handleSearch} className="w-full h-12 bg-green-600 hover:bg-green-700 text-white rounded-xl font-bold shadow-lg shadow-green-100 text-base transition-transform active:scale-[0.98]">
+              <Button onClick={handleSearch} className="w-full h-12 bg-green-500 hover:bg-green-400 text-white rounded-xl font-bold shadow-lg shadow-green-500/25 text-base transition-all hover:shadow-green-500/40 active:scale-[0.98]">
               {t('searchCars')}
             </Button>
           </div>

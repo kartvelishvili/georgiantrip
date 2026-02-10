@@ -12,7 +12,8 @@ const LocationDropdown = ({
   placeholder, 
   label, 
   iconColor = "text-gray-500",
-  className
+  className,
+  variant = "light"
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [allLocations, setAllLocations] = useState([]);
@@ -140,11 +141,11 @@ const LocationDropdown = ({
 
   return (
     <div className={cn("relative", className)} ref={wrapperRef}>
-      {label && <Label className="text-xs text-gray-400 font-bold mb-1 ml-1 block uppercase">{label}</Label>}
+      {label && <Label className={cn("text-xs font-bold mb-1 ml-1 block uppercase", variant === "dark" ? "text-gray-400" : "text-gray-400")}>{label}</Label>}
       
       <div className="relative group">
         <MapPin className={cn("absolute left-3 top-3.5 w-5 h-5 z-10 transition-colors", 
-             isOpen ? "text-green-600" : iconColor
+             isOpen ? (variant === "dark" ? "text-green-400" : "text-green-600") : iconColor
         )} />
         
         <Input
@@ -155,7 +156,12 @@ const LocationDropdown = ({
           onClick={handleInputFocus}
           onFocus={handleInputFocus}
           placeholder={placeholder}
-          className="h-12 pl-10 pr-10 bg-white border-gray-200 focus:ring-2 focus:ring-green-600/20 focus:border-green-600 rounded-xl shadow-sm transition-all text-base cursor-pointer"
+          className={cn(
+            "h-12 pl-10 pr-10 rounded-xl transition-all text-base cursor-pointer",
+            variant === "dark" 
+              ? "bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:ring-2 focus:ring-green-400/20 focus:border-green-400 shadow-none"
+              : "bg-white border-gray-200 focus:ring-2 focus:ring-green-600/20 focus:border-green-600 shadow-sm"
+          )}
           autoComplete="off"
         />
 
