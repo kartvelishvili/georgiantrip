@@ -43,7 +43,7 @@ const CarBookingForm = ({ car, transfer, initialDate, initialTravelers }) => {
   useEffect(() => {
     // 1. Get Base Variables
     const pricePerKm = parseFloat(car?.price_per_km || 2);
-    const distance = parseFloat(transfer?.distance_km || 0);
+    const distance = Math.round(parseFloat(transfer?.distance_km || 0));
     const travelers = parseInt(formData.travelers || 1);
     
     // 2. Calculate

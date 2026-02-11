@@ -142,12 +142,30 @@ export const sendBookingSMS = async (booking, driver, admins) => {
       }
     }
 
-    // 5. Save Logs
+    // 5. Send to Passenger
+    let passengerSent = false;
+    if (booking.customer_phone) {
+      const passengerMsg = `GeorgianTrip: Your booking #${variables.bookingId} is confirmed! Route: ${variables.fromLocation} → ${variables.toLocation}, Date: ${variables.date}, Driver: ${variables.driverName}, Car: ${variables.carModel}. Have a great trip!`;
+      const passengerResult = await sendSMS(booking.customer_phone, passengerMsg, api_key);
+      
+      if (passengerResult.success) passengerSent = true;
+
+      logs.push({
+        booking_id: booking.id,
+        recipient_phone: booking.customer_phone,
+        recipient_type: 'passenger',
+        message: passengerMsg,
+        status: passengerResult.success ? 'sent' : 'failed',
+        error_message: passengerResult.error
+      });
+    }
+
+    // 6. Save Logs
     if (logs.length > 0) {
       await supabase.from('sms_logs').insert(logs);
     }
 
-    return { success: true, driverSent, adminsSent };
+    return { success: true, driverSent, adminsSent, passengerSent };
 
   } catch (error) {
     console.error('sendBookingSMS critical error:', error);

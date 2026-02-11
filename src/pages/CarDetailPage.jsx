@@ -128,7 +128,7 @@ const CarDetailPage = () => {
                       </div>
                       <div className="space-y-1">
                         <div className="text-xs font-semibold uppercase text-gray-500">Distance</div>
-                        <div className="font-medium text-gray-900">{activeTransfer.distance_km} km</div>
+                        <div className="font-medium text-gray-900">{Math.round(activeTransfer.distance_km)} km</div>
                       </div>
                       <div className="space-y-1">
                         <div className="text-xs font-semibold uppercase text-gray-500">Base Rate</div>
