@@ -7,9 +7,10 @@ import TransferSearchForm from '@/components/transfer/TransferSearchForm';
 import TransferDetails from '@/components/transfer/TransferDetails';
 import CarResultCard from '@/components/search/CarResultCard';
 import BookingModal from '@/components/booking/BookingModal';
-import { Loader2, RefreshCw } from 'lucide-react';
+import { Loader2, RefreshCw, Car as CarIcon, SearchX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { calculateTripPrice } from '@/lib/pricing';
+import { supabase } from '@/lib/customSupabaseClient';
 
 const TransferSearchPage = () => {
   const { transferSlug } = useParams();
@@ -32,11 +33,9 @@ const TransferSearchPage = () => {
         setTransfer(data);
         
         if (data) {
-           // Initial fetch of cars for today/tomorrow
            const today = new Date().toISOString().split('T')[0];
            await fetchCars(data, today);
            
-           // Set initial search data for context
            setCurrentSearchData({
                startLocation: { 
                    id: data.from_location?.id, 
@@ -75,14 +74,18 @@ const TransferSearchPage = () => {
             date
         );
         
-        // Calculate prices for each car based on the transfer distance
-        // We use the base_price from the transfer as a baseline, but cars might have their own multipliers
-        // For simplicity here, we can override or merge logic. 
-        // Let's use the standard pricing logic but ensure it roughly matches the transfer's base_price for display consistency
+        // Fetch admin settings for proper pricing
+        let adminSettings = null;
+        try {
+          const { data } = await supabase.from('admin_settings').select('*').maybeSingle();
+          adminSettings = data;
+        } catch (e) { /* use defaults */ }
         
         const calculatedCars = availableCars.map(car => {
-            const price = calculateTripPrice(transferData.distance_km, null, null); // Simplified
-            // Or use the transfer.base_price if strictly fixed
+            // Use driver-specific pricing if available, otherwise use standard pricing
+            const driverPricing = car.driver_pricing || null;
+            const price = calculateTripPrice(transferData.distance_km, adminSettings, driverPricing);
+            // Transfer base_price takes precedence as the fixed route price
             return {
                 ...car,
                 calculatedPrice: Number(transferData.base_price) || price
@@ -98,7 +101,6 @@ const TransferSearchPage = () => {
   };
 
   const handleSearch = (searchData) => {
-    // When user changes date or location in the form
     setCurrentSearchData(searchData);
     if (transfer) {
         fetchCars(transfer, searchData.date);
@@ -110,13 +112,26 @@ const TransferSearchPage = () => {
     setIsBookingModalOpen(true);
   };
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center"><Loader2 className="w-8 h-8 animate-spin text-green-600" /></div>;
+  if (loading) return (
+    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="text-center">
+        <Loader2 className="w-10 h-10 animate-spin text-green-600 mx-auto mb-3" />
+        <p className="text-sm text-gray-400 font-medium">Loading transfer...</p>
+      </div>
+    </div>
+  );
   
   if (!transfer) return (
-      <div className="min-h-screen flex flex-col items-center justify-center">
-          <h1 className="text-2xl font-bold mb-4">Transfer Not Found</h1>
-          <Button onClick={() => navigate('/')}>Go Home</Button>
+    <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center">
+      <div className="text-center max-w-sm">
+        <div className="w-16 h-16 rounded-2xl bg-gray-100 flex items-center justify-center mx-auto mb-4">
+          <SearchX className="w-8 h-8 text-gray-400" />
+        </div>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2">Transfer Not Found</h1>
+        <p className="text-gray-500 text-sm mb-6">The transfer route you're looking for doesn't exist or has been removed.</p>
+        <Button onClick={() => navigate('/')} className="bg-green-600 hover:bg-green-700 text-white font-bold rounded-xl px-6">Go Home</Button>
       </div>
+    </div>
   );
 
   const modalSearchParams = currentSearchData ? {
@@ -154,20 +169,43 @@ const TransferSearchPage = () => {
                  onSearch={handleSearch}
               />
 
-              <div className="space-y-4">
+              <div className="space-y-5">
                   <div className="flex items-center justify-between">
-                      <h2 className="text-xl font-bold text-gray-900">Available Vehicles</h2>
-                      <span className="text-sm text-gray-500">{cars.length} options found</span>
+                      <div className="flex items-center gap-3">
+                        <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
+                          <CarIcon className="w-4 h-4 text-green-600" />
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold text-gray-900">Available Vehicles</h2>
+                          <p className="text-xs text-gray-400 mt-0.5">Select a car to book your transfer</p>
+                        </div>
+                      </div>
+                      <span className="bg-gray-100 text-gray-600 text-xs font-bold px-3 py-1.5 rounded-full">
+                        {cars.length} {cars.length === 1 ? 'option' : 'options'}
+                      </span>
                   </div>
 
                   {carsLoading ? (
                       <div className="space-y-4">
-                          {[1, 2].map(i => (
-                             <div key={i} className="h-64 bg-gray-200 animate-pulse rounded-xl"></div>
+                          {[1, 2, 3].map(i => (
+                             <div key={i} className="bg-white rounded-2xl border border-gray-100 overflow-hidden">
+                               <div className="flex flex-col sm:flex-row">
+                                 <div className="sm:w-72 h-48 sm:h-52 bg-gray-100 animate-pulse" />
+                                 <div className="flex-1 p-6 space-y-4">
+                                   <div className="h-6 bg-gray-100 rounded-lg w-2/3 animate-pulse" />
+                                   <div className="h-4 bg-gray-100 rounded-lg w-1/3 animate-pulse" />
+                                   <div className="flex gap-2">
+                                     <div className="h-8 bg-gray-100 rounded-full w-20 animate-pulse" />
+                                     <div className="h-8 bg-gray-100 rounded-full w-20 animate-pulse" />
+                                   </div>
+                                   <div className="h-12 bg-gray-100 rounded-lg w-full animate-pulse mt-auto" />
+                                 </div>
+                               </div>
+                             </div>
                           ))}
                       </div>
                   ) : cars.length > 0 ? (
-                      <div className="grid grid-cols-1 gap-4">
+                      <div className="space-y-4">
                           {cars.map(car => (
                               <CarResultCard 
                                   key={car.id} 
@@ -177,10 +215,18 @@ const TransferSearchPage = () => {
                           ))}
                       </div>
                   ) : (
-                      <div className="bg-white p-8 rounded-xl text-center border border-gray-100 shadow-sm">
-                          <p className="text-gray-500 mb-4">No cars available for this date.</p>
-                          <Button variant="outline" onClick={() => fetchCars(transfer, new Date().toISOString().split('T')[0])}>
-                              <RefreshCw className="w-4 h-4 mr-2" /> Try Today
+                      <div className="bg-white p-12 rounded-2xl text-center border border-gray-100 shadow-sm">
+                          <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mx-auto mb-4">
+                            <CarIcon className="w-7 h-7 text-gray-300" />
+                          </div>
+                          <h3 className="text-lg font-bold text-gray-900 mb-2">No vehicles available</h3>
+                          <p className="text-gray-400 text-sm mb-6 max-w-xs mx-auto">No cars are available for this date. Try selecting a different date.</p>
+                          <Button 
+                            variant="outline" 
+                            onClick={() => fetchCars(transfer, new Date().toISOString().split('T')[0])}
+                            className="rounded-xl font-semibold"
+                          >
+                              <RefreshCw className="w-4 h-4 mr-2" /> Search Today
                           </Button>
                       </div>
                   )}
@@ -189,7 +235,7 @@ const TransferSearchPage = () => {
 
            {/* Right Column: Details Sidebar */}
            <div className="lg:col-span-1 pt-8 lg:pt-0">
-               <div className="sticky top-24">
+               <div className="sticky top-24 space-y-6">
                    <TransferDetails transfer={transfer} />
                </div>
            </div>
