@@ -153,17 +153,16 @@ const SearchResults = () => {
   } : null;
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen bg-gray-50 pb-20 pt-20">
       <Helmet>
         <title>Search Results | GeorgianTrip</title>
       </Helmet>
       
-      {/* Search Bar — sits below the fixed site Header */}
-      <div className="bg-gray-950 pt-24 pb-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-gray-950 to-gray-950 z-0" />
-         <div className="container-custom relative z-10">
+      {/* Search Bar — dark header matching site design */}
+      <div className="bg-[#064E3B] sticky top-[72px] z-30 shadow-lg">
+         <div className="container-custom py-3">
              <div className="flex flex-col md:flex-row items-center gap-3">
-                 <Button variant="ghost" size="sm" onClick={() => navigate(-1)} className="shrink-0 hidden md:flex text-gray-400 hover:text-white hover:bg-white/10">
+                 <Button variant="ghost" size="sm" onClick={() => navigate(-1)} className="shrink-0 hidden md:flex text-green-200 hover:text-white hover:bg-white/10">
                      <ArrowLeft className="w-4 h-4 mr-2" /> Back
                  </Button>
                  
@@ -203,29 +202,29 @@ const SearchResults = () => {
              <div className="flex flex-col gap-8">
                  {/* Trip Summary */}
                  <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 flex flex-wrap gap-6 items-center justify-between">
-                     <div className="flex flex-wrap gap-8 items-center">
+                     <div className="flex flex-wrap gap-6 items-center">
                         <div className="flex flex-col">
-                            <span className="text-xs text-gray-500 font-bold uppercase">From</span>
-                            <span className="font-semibold text-lg text-gray-900">{tripDetails.from.name_en}</span>
+                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">From</span>
+                            <span className="font-bold text-lg text-gray-900">{tripDetails.from.name_en}</span>
                         </div>
                         <ArrowLeft className="w-5 h-5 text-green-500 rotate-180 hidden sm:block" />
                         <div className="flex flex-col">
-                            <span className="text-xs text-gray-500 font-bold uppercase">To</span>
-                            <span className="font-semibold text-lg text-gray-900">{tripDetails.to.name_en}</span>
+                            <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">To</span>
+                            <span className="font-bold text-lg text-gray-900">{tripDetails.to.name_en}</span>
                         </div>
                      </div>
-                     <div className="flex gap-4 text-sm text-gray-600 bg-green-50 px-4 py-2 rounded-xl border border-green-100 font-medium">
+                     <div className="flex gap-3 text-sm text-green-700 bg-green-50 px-4 py-2 rounded-xl border border-green-100 font-semibold">
                         <span>{tripDetails.distance} km</span>
                         <span className="text-green-300">|</span>
                         <span>{Math.floor(tripDetails.duration / 60)}h {tripDetails.duration % 60}m</span>
                      </div>
                  </div>
 
-                 {/* Results Grid */}
+                 {/* Results Grid - 3 Columns */}
                  <div>
                      <h2 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                        Available Vehicles 
-                        <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm border border-green-100">{cars.length}</span>
+                        Available Vehicles
+                        <span className="bg-green-50 text-green-700 px-3 py-0.5 rounded-full text-sm font-bold border border-green-100">{cars.length}</span>
                      </h2>
                      
                      {cars.length > 0 ? (

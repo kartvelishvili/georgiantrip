@@ -44,9 +44,8 @@ const PopularToursSection = () => {
   }, []);
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(16,185,129,0.04),transparent_50%)]" />
-      <div className="container-custom relative z-10">
+    <section className="py-24 bg-white">
+      <div className="container-custom">
         <div className="flex flex-col md:flex-row justify-between items-end mb-14 gap-6">
           <motion.div 
             className="max-w-2xl"

@@ -30,21 +30,17 @@ const BookingConfirmationPage = () => {
   if (!booking) return <div className="h-screen flex items-center justify-center">Booking not found</div>;
 
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
-      {/* Success header */}
-      <div className="bg-gray-950 pt-24 pb-12 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/30 via-gray-950 to-gray-950 z-0" />
-        <div className="container-custom max-w-3xl relative z-10 text-center">
-            <div className="w-20 h-20 bg-green-500/20 border border-green-500/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <CheckCircle className="w-10 h-10 text-green-400" />
+    <div className="min-h-screen bg-gray-50 pt-24 pb-20">
+      <div className="container-custom max-w-3xl">
+        <div className="text-center mb-8">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-10 h-10 text-green-600" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-2">Booking Confirmed!</h1>
-            <p className="text-gray-400">Thank you for your booking. A confirmation email has been sent to {booking.passenger_email}.</p>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">Booking Confirmed!</h1>
+            <p className="text-gray-600">Thank you for your booking. A confirmation email has been sent to {booking.passenger_email}.</p>
         </div>
-      </div>
 
-      <div className="container-custom max-w-3xl -mt-4 relative z-10">
-        <Card className="p-8 shadow-lg border border-gray-100 rounded-2xl">
+        <Card className="p-8 shadow-lg border-t-4 border-t-green-600">
             <div className="flex justify-between items-start border-b pb-6 mb-6">
                 <div>
                     <h2 className="text-xl font-bold text-gray-900">{booking.tours?.name_en}</h2>

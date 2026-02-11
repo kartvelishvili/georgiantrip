@@ -31,9 +31,8 @@ const PopularTransfersSection = () => {
   if (transfers.length === 0) return null;
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.04),transparent_50%)]" />
-      <div className="container-custom relative z-10">
+    <section className="py-24 bg-gray-50">
+      <div className="container-custom">
         {/* Section Header */}
         <motion.div 
           className="text-center mb-14 max-w-3xl mx-auto"

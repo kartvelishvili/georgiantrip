@@ -20,8 +20,8 @@ const ValueIcons = () => {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.06),transparent_70%)]" />
+    <section className="py-24 bg-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(16,185,129,0.08),transparent_70%)]" />
       <div className="container-custom relative z-10">
         <motion.div 
           className="text-center mb-16"

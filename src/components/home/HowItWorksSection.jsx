@@ -9,7 +9,7 @@ const HowItWorksSection = () => {
   const { content } = useSiteContent('home', 'how_it_works', DEFAULT_CONTENT.home.how_it_works);
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden" id="how-it-works">
+    <section className="py-24 bg-white relative overflow-hidden" id="how-it-works">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
       
       <div className="container-custom">

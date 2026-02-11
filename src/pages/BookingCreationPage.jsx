@@ -137,49 +137,44 @@ const BookingCreationPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6">
       <Helmet>
         <title>Complete Your Booking | GeorgianTrip</title>
       </Helmet>
 
-      {/* Dark header bar */}
-      <div className="bg-gray-950 pt-24 pb-8 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-green-900/20 via-gray-950 to-gray-950 z-0" />
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex items-center justify-between mb-6">
-            <Button variant="ghost" onClick={() => navigate(-1)} className="text-gray-400 hover:text-white hover:bg-white/10 -ml-4">
-              <ChevronLeft className="w-5 h-5 mr-1" /> Back
-            </Button>
-            <div className="text-right">
-               <h1 className="text-2xl font-bold text-white">Complete Booking</h1>
-               <p className="text-sm text-gray-400">Step {step} of 4</p>
+      <div className="max-w-2xl mx-auto">
+        {/* Header */}
+        <div className="mb-8 flex items-center justify-between">
+          <Button variant="ghost" onClick={() => navigate(-1)} className="text-gray-600 hover:text-gray-900 -ml-4">
+            <ChevronLeft className="w-5 h-5 mr-1" /> Back
+          </Button>
+          <div className="text-right">
+             <h1 className="text-2xl font-bold text-gray-900">Booking</h1>
+             <p className="text-sm text-gray-500">Step {step} of 4</p>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        {step < 5 && (
+          <div className="mb-8">
+            <div className="flex justify-between mb-2">
+               {stepTitles.slice(0, 4).map((title, idx) => (
+                 <span key={idx} className={`text-xs font-medium ${step > idx ? 'text-green-600' : 'text-gray-400'}`}>
+                   {title}
+                 </span>
+               ))}
+            </div>
+            <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                className="h-full bg-green-500 transition-all duration-500 ease-out"
+                style={{ width: `${(step / 4) * 100}%` }}
+              />
             </div>
           </div>
+        )}
 
-          {/* Progress Bar */}
-          {step < 5 && (
-            <div>
-              <div className="flex justify-between mb-2">
-                 {stepTitles.slice(0, 4).map((title, idx) => (
-                   <span key={idx} className={`text-xs font-medium ${step > idx ? 'text-green-400' : 'text-gray-500'}`}>
-                     {title}
-                   </span>
-                 ))}
-              </div>
-              <div className="h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div 
-                  className="h-full bg-green-500 transition-all duration-500 ease-out rounded-full"
-                  style={{ width: `${(step / 4) * 100}%` }}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-      </div>
-
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 py-8">
         {/* Main Content Card */}
-        <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
           <div className="p-6 md:p-8">
             {step === 1 && (
               <BookingStep1 
