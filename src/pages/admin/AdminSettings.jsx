@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/components/ui/use-toast';
-import { Save, Shield } from 'lucide-react';
+import { Save, Shield, Instagram } from 'lucide-react';
 
 const AdminSettings = () => {
   const { toast } = useToast();
@@ -179,8 +179,30 @@ const AdminSettings = () => {
              </div>
          </Card>
 
+         <Card className="p-6">
+             <div className="flex items-center gap-2 mb-4">
+                 <Instagram className="w-5 h-5 text-pink-500" />
+                 <h3 className="font-bold text-lg">Instagram Integration</h3>
+             </div>
+             <div className="space-y-3">
+                 <div>
+                     <Label>Instagram Access Token</Label>
+                     <Input 
+                        type="password"
+                        placeholder="Paste your long-lived Instagram access token..."
+                        value={settings.instagram_access_token || ''} 
+                        onChange={e => setSettings({...settings, instagram_access_token: e.target.value})}
+                     />
+                     <p className="text-xs text-gray-500 mt-1">
+                       Get a token from the <a href="https://developers.facebook.com/docs/instagram-basic-display-api/getting-started" target="_blank" rel="noreferrer" className="text-blue-600 underline">Meta Developer Portal</a>. 
+                       This enables the homepage Instagram feed to show real posts from @georgiantrip_go.
+                     </p>
+                 </div>
+             </div>
+         </Card>
+
          <Button onClick={handleSave} className="bg-green-600 w-full md:w-auto">
-             <Save className="w-4 h-4 mr-2" /> Save Changes
+             <Save className="w-4 h-4 mr-2" /> Save All Changes
          </Button>
      </div>
   );
