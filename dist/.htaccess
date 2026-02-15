@@ -9,11 +9,9 @@
 <IfModule mod_headers.c>
   Header set X-Powered-By "Hostinger Horizons"
 
-  # Cache everything on CDN by default
-  Header set Cache-Control "public, s-maxage=604800, max-age=0"
-  
-  # Cache in browser all assets
+  # Cache everything on CDN by default (reduced for faster updates)
+  Header set Cache-Control "public, s-maxage=3600, max-age=0"
+
+  # Cache in browser all assets (reduced for faster updates)
   <If "%{REQUEST_URI} =~ m#^/assets/.*$#">
-    Header set Cache-Control "public, max-age=604800"
-  </If>
-</IfModule>
+    Header set Cache-Control "public, max-age=3600"
