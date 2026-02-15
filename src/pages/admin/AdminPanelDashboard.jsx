@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/customSupabaseClient';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Users, Car, DollarSign, TrendingUp, Calendar, ArrowRight, Activity, Map } from 'lucide-react';
+import { Users, Car, DollarSign, TrendingUp, Calendar, ArrowRight, Activity, Map, Trash2 } from 'lucide-react';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { useNavigate } from 'react-router-dom';
 import { format } from 'date-fns';
@@ -65,6 +65,28 @@ const AdminPanelDashboard = () => {
     fetchData();
   }, []);
 
+  const clearCache = () => {
+    if (window.confirm('Are you sure you want to clear all cache? This will reload the page.')) {
+      // Clear localStorage
+      localStorage.clear();
+      
+      // Clear sessionStorage
+      sessionStorage.clear();
+      
+      // Clear any service worker caches
+      if ('caches' in window) {
+        caches.keys().then(names => {
+          names.forEach(name => {
+            caches.delete(name);
+          });
+        });
+      }
+      
+      // Reload the page to clear any in-memory caches
+      window.location.reload();
+    }
+  };
+
   const QuickStatCard = ({ icon: Icon, label, value, colorClass, bgClass }) => (
     <Card className="border-none shadow-sm">
       <CardContent className="p-6">
@@ -91,6 +113,10 @@ const AdminPanelDashboard = () => {
         <div className="flex gap-2">
             <Button variant="outline" onClick={() => navigate('/paneli/bookings')}>View Bookings</Button>
             <Button className="bg-green-600 hover:bg-green-700" onClick={() => navigate('/paneli/drivers')}>Manage Drivers</Button>
+            <Button variant="outline" className="text-red-600 border-red-200 hover:bg-red-50" onClick={clearCache}>
+              <Trash2 className="w-4 h-4 mr-2" />
+              Clear Cache
+            </Button>
         </div>
       </div>
 
