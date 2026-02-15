@@ -44,7 +44,7 @@ const TourBookingsPage = () => {
         .from('tour_bookings')
         .select(`
           *,
-          tour:tours(name_en, title_en, image_url, main_image)
+          tour:tours(name_en, image_url)
         `)
         .order('created_at', { ascending: false });
 
@@ -272,7 +272,7 @@ const TourBookingsPage = () => {
                       </TableCell>
                       <TableCell>
                         <div className="max-w-[180px] truncate font-medium text-gray-700">
-                          {booking.tour_name || booking.tour?.name_en || booking.tour?.title_en || 'Unknown Tour'}
+                          {booking.tour_name || booking.tour?.name_en || 'Unknown Tour'}
                         </div>
                       </TableCell>
                       <TableCell>
@@ -294,7 +294,14 @@ const TourBookingsPage = () => {
                           )}
                         </div>
                       </TableCell>
-                      <TableCell>{getPaymentBadge(booking.payment_status)}</TableCell>
+                      <TableCell>
+                        <div className="flex flex-col gap-1">
+                          {getPaymentBadge(booking.payment_status)}
+                          {booking.payment_method === 'cash' && (
+                            <Badge className="bg-amber-100 text-amber-700 hover:bg-amber-100 border-0 text-[10px]">Cash</Badge>
+                          )}
+                        </div>
+                      </TableCell>
                       <TableCell>{getStatusBadge(booking.booking_status)}</TableCell>
                       <TableCell className="text-right" onClick={e => e.stopPropagation()}>
                         <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => openDetail(booking)}>
@@ -407,11 +414,17 @@ const TourBookingsPage = () => {
                 </div>
               </div>
 
-              {/* PayPal Payment Info */}
+              {/* Payment Info */}
               <div className="bg-indigo-50 rounded-xl p-4 space-y-3">
                 <h3 className="font-bold text-gray-900 flex items-center gap-2">
-                  <CreditCard className="w-4 h-4 text-indigo-600" /> PayPal Payment
+                  <CreditCard className="w-4 h-4 text-indigo-600" /> 
+                  {selectedBooking.payment_method === 'cash' ? 'Cash Payment' : 'PayPal Payment'}
                 </h3>
+                {selectedBooking.payment_method === 'cash' && (
+                  <div className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-sm text-amber-800 font-medium">
+                    Customer will pay in cash on the tour day
+                  </div>
+                )}
                 <div className="grid grid-cols-2 gap-4 text-sm">
                   <div>
                     <span className="text-gray-500 block text-xs font-medium mb-0.5">Payment Status</span>
@@ -488,7 +501,9 @@ const TourBookingsPage = () => {
                     {selectedBooking.payment_status === 'pending' && (
                       <div className="flex items-center gap-3 text-sm">
                         <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></div>
-                        <span className="text-yellow-700">Awaiting PayPal payment...</span>
+                        <span className="text-yellow-700">
+                          {selectedBooking.payment_method === 'cash' ? 'Cash payment — will be collected on tour day' : 'Awaiting PayPal payment...'}
+                        </span>
                       </div>
                     )}
                     {selectedBooking.payment_status === 'refunded' && (

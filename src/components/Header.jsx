@@ -32,7 +32,7 @@ const Header = ({ onNavigate }) => {
   const isHomePage = location.pathname === '/';
   
   const headerBgClass = isHomePage && !scrolled 
-    ? "bg-transparent backdrop-blur-[2px]" 
+    ? "bg-[#064E3B]/80 backdrop-blur-md border-b border-white/10" 
     : "bg-[#064E3B] shadow-lg border-b border-green-800/30";
 
   const navLinks = [

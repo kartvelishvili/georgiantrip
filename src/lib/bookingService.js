@@ -49,16 +49,27 @@ export const createTourBooking = async (bookingData) => {
         supabase.from('sms_settings').select('api_key, admin_sms_template').single()
       ]);
 
-      if (smsSettings?.api_key && admins?.length > 0) {
+      if (smsSettings?.api_key) {
         const tourName = bookingData.tour_name || 'Tour';
-        const message = `New Tour Booking! Tour: ${tourName}, Passenger: ${bookingData.passenger_name}, Date: ${bookingData.tour_date}, Travelers: ${bookingData.passenger_count}, Price: ${bookingData.total_price} GEL`;
         
-        for (const admin of admins) {
-          if (admin.phone_number) {
-            sendSMS(admin.phone_number, message, smsSettings.api_key)
-              .then(r => console.log('Tour SMS to admin:', r))
-              .catch(e => console.error('Tour SMS failed:', e));
+        // Send SMS to admins
+        if (admins?.length > 0) {
+          const adminMessage = `New Tour Booking! Tour: ${tourName}, Passenger: ${bookingData.passenger_name}, Date: ${bookingData.tour_date}, Travelers: ${bookingData.passenger_count}, Price: ${bookingData.total_price} GEL`;
+          for (const admin of admins) {
+            if (admin.phone_number) {
+              sendSMS(admin.phone_number, adminMessage, smsSettings.api_key)
+                .then(r => console.log('Tour SMS to admin:', r))
+                .catch(e => console.error('Tour SMS to admin failed:', e));
+            }
           }
+        }
+        
+        // Send SMS to tourist/passenger
+        if (bookingData.passenger_phone) {
+          const passengerMessage = `GeorgianTrip: შენს მიერ შერჩეული ტური წარმატებით დაიჯავშნა www.georgiantrip.com საიტზე. Tour: ${tourName}, Date: ${bookingData.tour_date}`;
+          sendSMS(bookingData.passenger_phone, passengerMessage, smsSettings.api_key)
+            .then(r => console.log('Tour SMS to passenger:', r))
+            .catch(e => console.error('Tour SMS to passenger failed:', e));
         }
       }
     } catch (smsErr) {

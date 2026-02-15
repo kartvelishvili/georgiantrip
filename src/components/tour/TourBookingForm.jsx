@@ -5,7 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { formatPriceDetail, convertGelToUsd } from '@/lib/currencyUtils';
-import { Loader2, Users, Calendar as CalendarIcon, ShieldCheck } from 'lucide-react';
+import { Loader2, Users, Calendar as CalendarIcon, ShieldCheck, Banknote } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 import { createTourBooking, updateTourBookingPayment } from '@/lib/bookingService';
 import { useNavigate } from 'react-router-dom';
@@ -93,6 +93,7 @@ const TourBookingForm = ({ tour }) => {
                         total_price_gel: prices.totalPriceGel,
                         total_price_usd: prices.totalPriceUsd,
                         discount_percent: prices.totalDiscountPercent,
+                        payment_method: 'paypal',
                         payment_status: 'pending',
                         booking_status: 'confirmed'
                     });
@@ -157,6 +158,40 @@ const TourBookingForm = ({ tour }) => {
         }).render('#paypal-button-container');
     }
   }, [sdkReady, tour, navigate, toast]);
+
+  const handleCashBooking = async () => {
+    if (!formData.fullName || !formData.email || !formData.date || !formData.phone) {
+      toast({ variant: 'destructive', title: 'Missing Information', description: 'Please fill in all required fields.' });
+      return;
+    }
+    setLoading(true);
+    try {
+      const booking = await createTourBooking({
+        tour_id: tour.id,
+        tour_name: tour.title_en || tour.name_en,
+        passenger_name: formData.fullName,
+        passenger_email: formData.email,
+        passenger_phone: formData.phone,
+        passenger_count: formData.passengers,
+        tour_date: formData.date,
+        special_requests: formData.specialRequests,
+        total_price: totalPriceGel,
+        total_price_gel: totalPriceGel,
+        total_price_usd: totalPriceUsd,
+        discount_percent: totalDiscountPercent,
+        payment_method: 'cash',
+        payment_status: 'pending',
+        booking_status: 'confirmed'
+      });
+      toast({ title: 'Booking Confirmed!', description: 'You will pay in cash on the tour day.' });
+      navigate(`/booking-confirmation/${booking.id}`);
+    } catch (err) {
+      console.error('Cash booking failed:', err);
+      toast({ variant: 'destructive', title: 'Error', description: 'Could not create booking. Please try again.' });
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -245,11 +280,31 @@ const TourBookingForm = ({ tour }) => {
             </div>
         </div>
 
-        {/* Payment */}
-        <div className="pt-4">
-            {!sdkReady && <div className="text-center p-4 text-gray-500 flex items-center justify-center gap-2"><Loader2 className="animate-spin" /> Loading payment options...</div>}
+        {/* Payment Options */}
+        <div className="pt-4 space-y-4">
+            <h4 className="font-semibold text-gray-900">Choose Payment Method</h4>
+            
+            {/* Cash Payment */}
+            <Button
+              type="button"
+              onClick={handleCashBooking}
+              disabled={loading}
+              className="w-full py-6 text-base font-bold rounded-xl bg-amber-500 hover:bg-amber-600 text-white shadow-lg transition-all flex items-center justify-center gap-3"
+            >
+              {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <Banknote className="w-5 h-5" />}
+              {loading ? 'Processing...' : 'Pay with Cash'}
+            </Button>
+            
+            <div className="flex items-center gap-3 text-sm text-gray-400">
+              <div className="flex-1 h-px bg-gray-200" />
+              <span>or pay online</span>
+              <div className="flex-1 h-px bg-gray-200" />
+            </div>
+
+            {/* PayPal */}
+            {!sdkReady && <div className="text-center p-4 text-gray-500 flex items-center justify-center gap-2"><Loader2 className="animate-spin" /> Loading PayPal...</div>}
             <div id="paypal-button-container" className="z-0 relative"></div>
-            <p className="text-xs text-center text-gray-400 mt-2">Payments are processed securely by PayPal.</p>
+            <p className="text-xs text-center text-gray-400 mt-2">Online payments are processed securely by PayPal.</p>
         </div>
       </div>
     </Card>
