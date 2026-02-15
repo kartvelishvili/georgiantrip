@@ -255,7 +255,7 @@ export const DEFAULT_CONTENT = {
       label: 'Our Gallery',
       title: 'Beauty of Georgia',
       subtitle: 'A glimpse into the diverse landscapes and breathtaking scenery you can discover with GeorgianTrip.',
-      instagramUrl: 'https://www.instagram.com/georgiantrip_go/',
+      instagramUrl: 'https://www.instagram.com/georgiantrip_go_/',
       images: [
         { url: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c', alt: 'Tbilisi Old Town' },
         { url: 'https://images.unsplash.com/photo-1682667027683-19908f23dd89', alt: 'Kazbegi Mountains' },

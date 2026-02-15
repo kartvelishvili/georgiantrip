@@ -58,7 +58,7 @@ const GallerySection = () => {
         </div>
         
         <div className="mt-12 text-center">
-           <a href={content.instagramUrl || 'https://www.instagram.com/georgiantrip_go/'} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-pink-600 font-bold hover:text-pink-700 transition-colors">
+           <a href={content.instagramUrl || 'https://www.instagram.com/georgiantrip_go_/'} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 text-pink-600 font-bold hover:text-pink-700 transition-colors">
               <Instagram className="w-5 h-5" />
               View more on Instagram
            </a>

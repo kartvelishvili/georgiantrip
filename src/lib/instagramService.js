@@ -8,28 +8,28 @@ const INSTAGRAM_USER_ID = process.env.VITE_INSTAGRAM_USER_ID || '';
 const FALLBACK_POSTS = [
   {
     id: '1',
-    permalink: 'https://www.instagram.com/georgiantrip_go/',
+    permalink: 'https://www.instagram.com/georgiantrip_go_/',
     media_url: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=600',
     caption: 'The breathtaking Gergeti Trinity Church under the shadow of Mount Kazbek. 🏔️ #Kazbegi #Georgia',
     likes: 1245
   },
   {
     id: '2',
-    permalink: 'https://www.instagram.com/georgiantrip_go/',
+    permalink: 'https://www.instagram.com/georgiantrip_go_/',
     media_url: 'https://images.unsplash.com/photo-1569420427352-789a74288019?auto=format&fit=crop&q=80&w=600',
     caption: 'Wandering through the colorful streets of Old Tbilisi. Every balcony tells a story. ✨ #Tbilisi #Architecture',
     likes: 893
   },
   {
     id: '3',
-    permalink: 'https://www.instagram.com/georgiantrip_go/',
+    permalink: 'https://www.instagram.com/georgiantrip_go_/',
     media_url: 'https://images.unsplash.com/photo-1582236314811-db8a2046422d?auto=format&fit=crop&q=80&w=600',
     caption: 'The ancient stone towers of Ushguli, Svaneti. A UNESCO World Heritage site frozen in time. 🏛️ #Svaneti #History',
     likes: 1567
   },
   {
     id: '4',
-    permalink: 'https://www.instagram.com/georgiantrip_go/',
+    permalink: 'https://www.instagram.com/georgiantrip_go_/',
     media_url: 'https://images.unsplash.com/photo-1628108643883-9a4f4d2217f6?auto=format&fit=crop&q=80&w=600',
     caption: 'Sunset vibes on the Batumi boulevard. The pearl of the Black Sea! 🌊 #Batumi #Summer',
     likes: 2102
@@ -144,7 +144,7 @@ export const getInstagramProfile = async () => {
 
     // Fallback profile info
     return {
-      username: 'georgiantrip_go',
+      username: 'georgiantrip_go_',
       followers: 1250,
       following: 150,
       posts: 89
@@ -152,7 +152,7 @@ export const getInstagramProfile = async () => {
   } catch (error) {
     console.error('Error fetching Instagram profile:', error);
     return {
-      username: 'georgiantrip_go',
+      username: 'georgiantrip_go_',
       followers: 1250,
       following: 150,
       posts: 89

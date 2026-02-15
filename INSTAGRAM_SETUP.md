@@ -1,7 +1,7 @@
 # Instagram API Integration Setup
 
 ## Overview
-The Instagram section on the main page can now display real posts from your @georgiantrip_go account.
+The Instagram section on the main page can now display real posts from your @georgiantrip_go_ account.
 
 ## Setup Options
 

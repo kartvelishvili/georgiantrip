@@ -37,7 +37,7 @@ const InstagramFeedSection = () => {
               <span className="uppercase tracking-wider text-sm">Follow Us</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-gray-900">
-              @georgiantrip_go
+              @georgiantrip_go_
             </h2>
             <p className="text-gray-500 mt-2 max-w-md">
               Share your journey with us using #GeorgianTrip. See the beauty of Georgia through our travelers' eyes.
@@ -50,7 +50,7 @@ const InstagramFeedSection = () => {
           </div>
           
           <Button 
-            onClick={() => window.open('https://www.instagram.com/georgiantrip_go/', '_blank')}
+            onClick={() => window.open('https://www.instagram.com/georgiantrip_go_/', '_blank')}
             className="bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 hover:text-pink-600 gap-2 shadow-sm font-medium px-6 hidden md:flex"
           >
             <Instagram className="w-4 h-4" />
@@ -104,7 +104,7 @@ const InstagramFeedSection = () => {
         {/* Mobile Button */}
         <div className="mt-8 text-center md:hidden">
            <Button 
-            onClick={() => window.open('https://www.instagram.com/georgiantrip_go/', '_blank')}
+            onClick={() => window.open('https://www.instagram.com/georgiantrip_go_/', '_blank')}
             className="w-full bg-white text-gray-900 border border-gray-200 hover:bg-gray-50 hover:text-pink-600 gap-2"
           >
             <Instagram className="w-4 h-4" />
