@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import { useAuth } from '@/contexts/SupabaseAuthContext';
 import { Navigate } from 'react-router-dom';
+import { ExternalLink } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const AdminPanelLayout = () => {
   const { user, loading, isAdmin } = useAuth();
@@ -33,6 +35,15 @@ const AdminPanelLayout = () => {
                  <span className="ml-2 px-2 py-0.5 rounded-full bg-purple-100 text-purple-700 text-xs font-bold">Super Admin</span>
                )}
             </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => window.open('/', '_blank')}
+              className="h-8 w-8 p-0 text-gray-500 hover:text-gray-700 hover:bg-gray-100"
+              title="საიტზე გადასვლა"
+            >
+              <ExternalLink className="h-4 w-4" />
+            </Button>
             <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-700 font-bold border border-green-200">
                {user.email?.[0].toUpperCase()}
             </div>
