@@ -99,7 +99,7 @@ const Footer = () => {
             <img
               src="https://i.postimg.cc/XYVFF6s6/smarketer-white.png"
               alt="Smarketer"
-              className="h-8 w-auto"
+              className="h-6 w-auto"
             />
           </a>
         </div>
