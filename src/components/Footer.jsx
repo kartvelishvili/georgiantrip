@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Heart, Shield } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Shield } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useSiteContent } from '@/hooks/useSiteContent';
 import { DEFAULT_CONTENT } from '@/lib/siteContentService';
@@ -90,9 +90,18 @@ const Footer = () => {
           <p className="text-gray-500 text-xs">
             © {new Date().getFullYear()} GeorgianTrip. All rights reserved.
           </p>
-          <p className="text-gray-500 text-xs flex items-center gap-1">
-             Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" /> in Georgia
-          </p>
+          <a
+            href="https://smarketer.ge"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:opacity-80 transition-opacity"
+          >
+            <img
+              src="https://i.postimg.cc/XYVFF6s6/smarketer-white.png"
+              alt="Smarketer"
+              className="h-8 w-auto"
+            />
+          </a>
         </div>
       </div>
     </footer>
