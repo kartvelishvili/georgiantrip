@@ -6,7 +6,7 @@
  */
 
 const API_URL = import.meta.env.VITE_API_URL 
-  || (window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'http://194.163.172.62:3002');
+  || (window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://api.georgiantrip.com');
 
 // ── Query Builder (mimics Supabase PostgREST client) ──
 
