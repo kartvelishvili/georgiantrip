@@ -161,21 +161,25 @@ const DriverLogin = () => {
   };
 
   return (
-    <div className="min-h-screen relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        {/* Tourism Background */}
+    <div className="min-h-screen relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        {/* Tourism Background — Georgian Military Highway */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=1920')" }}
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&q=80&w=1920')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-emerald-900/40" />
         
-        <Card className="relative z-10 w-full max-w-md p-8 space-y-8 bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl border-0">
+        {/* Decorative elements */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-10 right-10 w-96 h-96 bg-green-600/10 rounded-full blur-3xl" />
+        
+        <Card className="relative z-10 w-full max-w-md p-8 space-y-8 bg-white/95 backdrop-blur-xl shadow-2xl rounded-3xl border border-white/20">
             <div className="text-center">
-                <div className="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
-                  <span className="text-white font-bold text-xl">GT</span>
+                <div className="w-16 h-16 bg-gradient-to-br from-emerald-500 to-green-700 rounded-2xl flex items-center justify-center shadow-xl shadow-green-900/20 mx-auto mb-4 rotate-3 hover:rotate-0 transition-transform duration-300">
+                  <span className="text-white font-bold text-2xl">GT</span>
                 </div>
                 <h2 className="text-3xl font-extrabold text-gray-900">Driver Portal</h2>
-                <p className="mt-2 text-sm text-gray-600">Join our network of professional drivers</p>
+                <p className="mt-2 text-sm text-gray-500">Join our network of professional drivers in Georgia</p>
             </div>
 
             <Tabs defaultValue="login" className="w-full">

@@ -23,47 +23,45 @@ const TransferCard = ({ transfer }) => {
   return (
     <Link 
       to={`/transfer/s/${transfer.slug}`} 
-      className="group relative block w-full h-[200px] overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl shadow-md cursor-pointer"
+      className="group relative block w-full h-[220px] overflow-hidden rounded-2xl transition-all duration-500 hover:scale-[1.03] hover:shadow-2xl hover:shadow-green-900/15 shadow-lg cursor-pointer"
     >
-      {/* Background with Green Gradient Dominance */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#10B981] to-[#059669] z-0" />
-      
-      {/* Subtle Background Image */}
+      {/* Full background image */}
       <div className="absolute inset-0 z-0">
          <img 
             src={bgImage} 
             alt={`${getLocName(transfer.from_location)} - ${getLocName(transfer.to_location)}`}
-            className="w-full h-full object-cover opacity-15 mix-blend-overlay group-hover:opacity-20 group-hover:scale-110 transition-all duration-700 ease-out grayscale-[20%]"
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
          />
       </div>
+      
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/80 via-black/30 to-transparent group-hover:from-emerald-900/80 group-hover:via-emerald-900/30 transition-all duration-500" />
 
       {/* Content Layer */}
       <div className="absolute inset-0 z-10 p-5 flex flex-col justify-between text-white">
         
         {/* Route Info */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center gap-3">
-          <div className="w-full">
-            <h3 className="text-xl md:text-2xl font-bold font-heading leading-tight drop-shadow-sm">
-              {getLocName(transfer.from_location)}
-            </h3>
-          </div>
+        <div className="flex-1 flex flex-col justify-center items-center text-center gap-2">
+          <h3 className="text-lg md:text-xl font-bold font-heading leading-tight drop-shadow-lg">
+            {getLocName(transfer.from_location)}
+          </h3>
 
-          <div className="flex items-center justify-center">
-            <div className="bg-white/20 backdrop-blur-sm p-1.5 rounded-full border border-white/30 group-hover:bg-white/30 transition-colors">
-               <ArrowRight className="w-5 h-5 text-white" />
+          <div className="flex items-center justify-center my-1">
+            <div className="h-px w-6 bg-white/40" />
+            <div className="bg-white/20 backdrop-blur-sm p-1.5 rounded-full border border-white/30 mx-2 group-hover:bg-emerald-500/50 group-hover:border-emerald-300/50 transition-all duration-300 group-hover:rotate-0 -rotate-0">
+               <ArrowRight className="w-4 h-4 text-white" />
             </div>
+            <div className="h-px w-6 bg-white/40" />
           </div>
 
-          <div className="w-full">
-             <h3 className="text-xl md:text-2xl font-bold font-heading leading-tight drop-shadow-sm">
-               {getLocName(transfer.to_location)}
-             </h3>
-          </div>
+          <h3 className="text-lg md:text-xl font-bold font-heading leading-tight drop-shadow-lg">
+            {getLocName(transfer.to_location)}
+          </h3>
         </div>
 
         {/* Footer Info: Distance & Price */}
-        <div className="flex items-end justify-between w-full pt-4 mt-auto border-t border-white/10">
-           <div className="flex items-center gap-1.5 opacity-90">
+        <div className="flex items-end justify-between w-full pt-3 mt-auto border-t border-white/15">
+           <div className="flex items-center gap-1.5 opacity-80">
               <MapPin className="w-3.5 h-3.5" />
               <span className="text-xs font-medium tracking-wide">
                 {transfer.distance_km ?? '—'} km
@@ -71,16 +69,13 @@ const TransferCard = ({ transfer }) => {
            </div>
            
            <div className="text-right">
-              <span className="block text-[10px] uppercase tracking-wider opacity-80 mb-0.5">From</span>
-              <span className="text-lg font-bold leading-none bg-white/20 px-2 py-1 rounded-md backdrop-blur-sm">
+              <span className="block text-[10px] uppercase tracking-wider opacity-70 mb-0.5">From</span>
+              <span className="text-base font-bold leading-none bg-emerald-600/80 px-2.5 py-1 rounded-lg backdrop-blur-sm shadow-sm">
                 {formatCurrency(transfer.base_price ?? 0)}
               </span>
            </div>
         </div>
       </div>
-      
-      {/* Hover Overlay Lighten Effect */}
-      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-colors duration-300 z-20 pointer-events-none" />
     </Link>
   );
 };
