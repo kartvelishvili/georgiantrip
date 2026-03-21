@@ -26,7 +26,7 @@ const AdminHeroPage = () => {
       } else {
         // Initialize default settings if none exist so form can be used
         setSettings({
-            image_url: 'https://i.postimg.cc/nrbYszvV/179254820-super.jpg',
+            image_url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-179254820-super.jpg.jpg',
             title_en: 'Discover Georgia',
             title_ka: 'აღმოაჩინეთ საქართველო',
             title_ru: 'Откройте для себя Грузию',

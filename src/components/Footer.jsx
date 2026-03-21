@@ -97,7 +97,7 @@ const Footer = () => {
             className="hover:opacity-80 transition-opacity"
           >
             <img
-              src="https://i.postimg.cc/XYVFF6s6/smarketer-white.png"
+              src="https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-smarketer-white.png.png"
               alt="Smarketer"
               className="h-6 w-auto"
             />

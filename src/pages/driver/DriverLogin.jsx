@@ -162,10 +162,10 @@ const DriverLogin = () => {
 
   return (
     <div className="min-h-screen relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        {/* Tourism Background — Georgian Military Highway */}
+        {/* Tourism Background — Georgian Landmark */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&q=80&w=1920')" }}
+          style={{ backgroundImage: "url('https://s3.ihost.ge/site-georgiantrip-com/site-images/driver-login-bg-georgia-landmark.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-emerald-900/40" />
         

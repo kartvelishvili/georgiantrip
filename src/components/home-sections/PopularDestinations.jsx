@@ -31,7 +31,7 @@ const PopularDestinations = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {destinations.map((dest, index) => (
             <div key={index} className="group relative h-72 rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-xl transition-all duration-300">
-              <img alt={dest.imageAlt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://images.unsplash.com/photo-1595872018818-97555653a011" />
+              <img alt={dest.imageAlt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1595872018818-97555653a011.jpg" />
               
               {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>

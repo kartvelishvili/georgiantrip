@@ -125,7 +125,7 @@ export const getStaticAboutData = () => {
         hero: {
             title: "About GeorgianTrip",
             subtitle: "Discover the Magic of Georgia with Us",
-            imageUrl: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80"
+            imageUrl: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg?auto=format&fit=crop&q=80"
         },
         story: {
             title: "Our Story",
@@ -148,8 +148,8 @@ export const getStaticAboutData = () => {
             { id: '3', section: 'values', key: 'Sustainability', value: "We care for Georgia's environment and culture, promoting responsible tourism.", image_url: 'leaf' }
         ],
         team: [
-            { id: '1', name: "Giorgi Beridze", role: "Founder & CEO", photo_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400", bio: "Visionary leader with 15 years in tourism." },
-            { id: '2', name: "Nino Kvaratskhelia", role: "Head of Operations", photo_url: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400", bio: "Logistics expert ensuring smooth journeys." },
+            { id: '1', name: "Giorgi Beridze", role: "Founder & CEO", photo_url: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1560250097-0b93528c311a.jpg", bio: "Visionary leader with 15 years in tourism." },
+            { id: '2', name: "Nino Kvaratskhelia", role: "Head of Operations", photo_url: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1573496359142-b8d87734a5a2.jpg", bio: "Logistics expert ensuring smooth journeys." },
             { id: '3', name: "David Mamardashvili", role: "Lead Tour Guide", photo_url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400", bio: "Passionate historian and storyteller." },
             { id: '4', name: "Mariam Tsereteli", role: "Customer Support", photo_url: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=400", bio: "Dedicated to 24/7 traveler assistance." }
         ]

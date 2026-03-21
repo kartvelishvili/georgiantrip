@@ -10,25 +10,25 @@ const HowItWorks = () => {
       number: 1, 
       title: "Choose Your Route", 
       desc: "Select your pick-up and drop-off locations, add stops, and choose your dates.",
-      image: "https://images.unsplash.com/photo-1624632731086-4f6c4424367f?w=400" 
+      image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1469854523086-cc02fe5d8800.jpg" 
     },
     { 
       number: 2, 
       title: "Select Driver", 
       desc: "Browse driver profiles, reviews, and cars to find your perfect match.",
-      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=400" 
+      image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1449965408869-eaa3f722e40d.jpg" 
     },
     { 
       number: 3, 
       title: "Confirm Details", 
       desc: "Book instantly without prepayment. You'll receive immediate confirmation.",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=400" 
+      image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1554224155-8d04cb21cd6c.jpg" 
     },
     { 
       number: 4, 
       title: "Enjoy Your Ride", 
       desc: "Meet your driver and enjoy a comfortable, safe journey through Georgia.",
-      image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400" 
+      image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1469854523086-cc02fe5d8800.jpg" 
     },
   ];
 

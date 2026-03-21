@@ -28,7 +28,7 @@ const HeroSection = () => {
 
   const title = getLocalizedContent('title') || t('heroTitle');
   const subtitle = getLocalizedContent('subtitle') || t('heroSubtitle');
-  const bgImage = settings?.image_url || "https://i.postimg.cc/nrbYszvV/179254820-super.jpg";
+  const bgImage = settings?.image_url || "https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-179254820-super.jpg.jpg";
 
   return (
     <div className="relative min-h-[780px] flex items-center justify-center overflow-hidden">

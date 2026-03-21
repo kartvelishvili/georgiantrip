@@ -97,7 +97,7 @@ const AdminLoginPage = () => {
       {/* Tourism Background */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&q=80&w=1920')" }}
+        style={{ backgroundImage: "url('https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008576549-57569a49371d.jpg')" }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/50" />
       

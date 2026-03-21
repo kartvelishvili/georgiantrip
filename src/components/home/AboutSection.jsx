@@ -79,7 +79,7 @@ const AboutSection = () => {
                 {/* Main Large Image */}
                 <div className="col-span-2 relative h-64 rounded-2xl overflow-hidden group shadow-lg">
                    <img 
-                     src="https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&q=80&w=800" 
+                     src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg?auto=format&fit=crop&q=80&w=800" 
                      alt="Svaneti Landscape" 
                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                    />
@@ -105,7 +105,7 @@ const AboutSection = () => {
 
                 <div className="col-span-1 relative h-48 rounded-2xl overflow-hidden group shadow-lg">
                    <img 
-                     src="https://images.unsplash.com/photo-1589828949826-6f10137452d3?auto=format&fit=crop&q=80&w=400" 
+                     src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1550355291-bbee04a92027.jpg" 
                      alt="Modern Transport" 
                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                    />

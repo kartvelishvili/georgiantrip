@@ -23,7 +23,7 @@ const FeaturedDrivers = () => {
             <div key={index} className="bg-white rounded-xl border border-gray-100 p-6 shadow-soft hover:shadow-lg transition-all text-center group">
               <div className="relative w-24 h-24 mx-auto mb-4">
                 <div className="w-full h-full rounded-full overflow-hidden border-2 border-green-100 group-hover:border-green-500 transition-colors">
-                  <img alt={driver.alt} className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1546661424-796f69a5ff97" />
+                  <img alt={driver.alt} className="w-full h-full object-cover" src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1546661424-796f69a5ff97.jpg" />
                 </div>
                 <div className="absolute -bottom-1 -right-1 bg-green-600 text-white p-1 rounded-full border-2 border-white">
                   <ShieldCheck className="w-3 h-3" />

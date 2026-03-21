@@ -76,7 +76,7 @@ const DriverRegistrationSection = () => {
       <div className="w-full relative h-[200px] md:h-[300px] mb-16">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-gray-950 z-10" />
         <img 
-          src={content.bannerImage || "https://i.postimg.cc/BQQSS2hZ/banner-georgiantrip-2048x439-modified-(1).png"}
+          src={content.bannerImage || "https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-banner-georgiantrip-2048x439-modified-_1_.png.png"}
           alt="Join GeorgianTrip Driver Team" 
           className="w-full h-full object-cover object-center"
         />

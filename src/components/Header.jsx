@@ -50,7 +50,7 @@ const Header = ({ onNavigate }) => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group relative z-50">
             <img 
-              src="https://i.postimg.cc/mgptfmRm/1-edited-1-1-qy5zwzzwpu0j6dxk2m4luqhe8smsejxkfebuablb4a.png" 
+              src="https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-1-edited-1-1-qy5zwzzwpu0j6dxk2m4luqhe8smsejxkfebuablb4a.png.png" 
               alt="GeorgianTrip Logo" 
               className="h-12 w-auto object-contain hover:opacity-90 transition-opacity"
             />
@@ -155,7 +155,7 @@ const Header = ({ onNavigate }) => {
         <div className="fixed inset-0 top-0 bg-[#064E3B] z-40 lg:hidden flex flex-col animate-in slide-in-from-right-10 duration-200">
           <div className="flex items-center justify-between p-4 border-b border-white/10">
               <img 
-                 src="https://i.postimg.cc/mgptfmRm/1-edited-1-1-qy5zwzzwpu0j6dxk2m4luqhe8smsejxkfebuablb4a.png" 
+                 src="https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-1-edited-1-1-qy5zwzzwpu0j6dxk2m4luqhe8smsejxkfebuablb4a.png.png" 
                  alt="GeorgianTrip Logo" 
                  className="h-10 w-auto"
               />

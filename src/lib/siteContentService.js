@@ -155,10 +155,10 @@ export const DEFAULT_CONTENT = {
       ],
       buttonText: 'Read More About Us',
       images: [
-        'https://images.unsplash.com/photo-1682667027683-19908f23dd89',
-        'https://images.unsplash.com/photo-1597566360895-5d93e580554e',
-        'https://images.unsplash.com/photo-1492713239497-a6fa9352daff',
-        'https://images.unsplash.com/photo-1672674779705-a58c96cdc8c5',
+        'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1682667027683-19908f23dd89.jpg',
+        'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1597566360895-5d93e580554e.jpg',
+        'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1492713239497-a6fa9352daff.jpg',
+        'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1672674779705-a58c96cdc8c5.jpg',
       ],
     },
     value_icons: {
@@ -179,7 +179,7 @@ export const DEFAULT_CONTENT = {
       subtitle: 'Book your private transfer today and discover the hidden gems of the Caucasus with our trusted local drivers.',
       buttonText: 'Plan Your Trip',
       contactButtonText: 'Contact Support',
-      backgroundImage: 'https://images.unsplash.com/photo-1678984451800-4a21019d74f0',
+      backgroundImage: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1678984451800-4a21019d74f0.jpg',
     },
     testimonials: {
       title: 'What Travelers Say',
@@ -210,7 +210,7 @@ export const DEFAULT_CONTENT = {
       title: 'About GeorgianTrip',
       subtitle: 'We are more than just a transfer service. We are your local friends, dedicated to showing you the real beauty, culture, and warmth of Georgia.',
       ctaText: 'Discover Our Mission',
-      backgroundImage: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c',
+      backgroundImage: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg',
     },
     mission: {
       label: 'Our Mission',
@@ -220,7 +220,7 @@ export const DEFAULT_CONTENT = {
         'We aim to empower local drivers and communities while providing world-class service that turns every journey into an unforgettable adventure.',
       ],
       imageCaption: 'Sharing our heritage with the world.',
-      imageUrl: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c',
+      imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg',
     },
     vision: {
       label: 'Our Vision',
@@ -230,17 +230,17 @@ export const DEFAULT_CONTENT = {
         'By leveraging technology and deep cultural knowledge, we are building the most trusted travel platform in the Caucasus region.',
       ],
       imageCaption: 'Building the future of travel.',
-      imageUrl: 'https://images.unsplash.com/photo-1597566360895-5d93e580554e',
+      imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1597566360895-5d93e580554e.jpg',
     },
     values: {
       label: 'Our DNA',
       title: 'Values That Guide Us',
       subtitle: 'At GeorgianTrip, these core principles shape everything we do.',
       items: [
-        { title: 'Authenticity', description: 'We believe in genuine experiences that connect travelers with Georgian culture and traditions.', imageUrl: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c' },
-        { title: 'Trust & Safety', description: 'Every driver is verified, every vehicle is inspected, and every journey is tracked for your peace of mind.', imageUrl: 'https://images.unsplash.com/photo-1597566360895-5d93e580554e' },
-        { title: 'Excellence', description: 'We strive for excellence in every detail, from vehicle comfort to guide knowledge.', imageUrl: 'https://images.unsplash.com/photo-1492713239497-a6fa9352daff' },
-        { title: 'Sustainability', description: 'We care for Georgia\'s environment and culture, promoting responsible tourism.', imageUrl: 'https://images.unsplash.com/photo-1672674779705-a58c96cdc8c5' },
+        { title: 'Authenticity', description: 'We believe in genuine experiences that connect travelers with Georgian culture and traditions.', imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg' },
+        { title: 'Trust & Safety', description: 'Every driver is verified, every vehicle is inspected, and every journey is tracked for your peace of mind.', imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1597566360895-5d93e580554e.jpg' },
+        { title: 'Excellence', description: 'We strive for excellence in every detail, from vehicle comfort to guide knowledge.', imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1492713239497-a6fa9352daff.jpg' },
+        { title: 'Sustainability', description: 'We care for Georgia\'s environment and culture, promoting responsible tourism.', imageUrl: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1672674779705-a58c96cdc8c5.jpg' },
       ],
     },
     stats: {
@@ -257,11 +257,11 @@ export const DEFAULT_CONTENT = {
       subtitle: 'A glimpse into the diverse landscapes and breathtaking scenery you can discover with GeorgianTrip.',
       instagramUrl: 'https://www.instagram.com/georgiantrip_go_/',
       images: [
-        { url: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c', alt: 'Tbilisi Old Town' },
-        { url: 'https://images.unsplash.com/photo-1682667027683-19908f23dd89', alt: 'Kazbegi Mountains' },
-        { url: 'https://images.unsplash.com/photo-1597566360895-5d93e580554e', alt: 'Georgian Wine Country' },
-        { url: 'https://images.unsplash.com/photo-1492713239497-a6fa9352daff', alt: 'Old Tbilisi' },
-        { url: 'https://images.unsplash.com/photo-1672674779705-a58c96cdc8c5', alt: 'Martvili Canyon' },
+        { url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg', alt: 'Tbilisi Old Town' },
+        { url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1682667027683-19908f23dd89.jpg', alt: 'Kazbegi Mountains' },
+        { url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1597566360895-5d93e580554e.jpg', alt: 'Georgian Wine Country' },
+        { url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1492713239497-a6fa9352daff.jpg', alt: 'Old Tbilisi' },
+        { url: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1672674779705-a58c96cdc8c5.jpg', alt: 'Martvili Canyon' },
       ],
     },
     cta: {
@@ -269,7 +269,7 @@ export const DEFAULT_CONTENT = {
       subtitle: 'Start your adventure with us today. Explore breathtaking tours or book a private transfer with trusted local drivers.',
       button1Text: 'Explore Tours',
       button2Text: 'Contact Us',
-      backgroundImage: 'https://images.unsplash.com/photo-1678984451800-4a21019d74f0',
+      backgroundImage: 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1678984451800-4a21019d74f0.jpg',
     },
   },
   contact: {

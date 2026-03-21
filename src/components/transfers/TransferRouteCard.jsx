@@ -13,7 +13,7 @@ const TransferRouteCard = ({ transfer }) => {
 
   const fromName = transfer.from_location?.name_en || 'Origin';
   const toName = transfer.to_location?.name_en || 'Destination';
-  const bgImage = transfer.image_url || 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=600&auto=format&fit=crop';
+  const bgImage = transfer.image_url || 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg';
 
   return (
     <motion.div

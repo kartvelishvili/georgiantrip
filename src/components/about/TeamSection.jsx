@@ -34,19 +34,19 @@ const TeamSection = () => {
     {
        name: "Vasil Sidamonidze",
        role: "Founder & CEO",
-       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400",
+       image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1560250097-0b93528c311a.jpg",
        bio: "A visionary leader with deep roots in Georgian tourism. Vasil founded GeorgianTrip with a mission to connect the world to the unparalleled beauty and hospitality of the Caucasus. His leadership drives the company's commitment to authentic experiences."
     },
     {
        name: "Nino Kvaratskhelia",
        role: "Head of Operations",
-       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=400",
+       image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1573496359142-b8d87734a5a2.jpg",
        bio: "With over a decade of experience in logistics, Nino ensures that every transfer and tour operates with clockwork precision. She is the backbone of our daily operations and customer satisfaction."
     },
     {
        name: "David Mamardashvili",
        role: "Lead Guide & Culture Expert",
-       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=400",
+       image: "https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1507003211169-0a1dd7228f2d.jpg",
        bio: "A historian by training and a storyteller at heart. David curates our tour itineraries, ensuring travelers don't just see the sights but understand the legends and history behind every stone in Georgia."
     },
     {
@@ -62,7 +62,7 @@ const TeamSection = () => {
        {/* Background Decoration */}
        <div className="absolute inset-0 z-0 opacity-10">
           <img 
-             src="https://images.unsplash.com/photo-1578326457399-3b34dbbf23b8?auto=format&fit=crop&q=80&w=1920" 
+             src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1578326457399-3b34dbbf23b8.jpg" 
              alt="Georgian Mountains Texture" 
              className="w-full h-full object-cover grayscale" 
           />

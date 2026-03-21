@@ -61,14 +61,14 @@ const OurStorySection = () => {
               <div className="space-y-4 mt-8">
                  <div className="h-48 rounded-2xl overflow-hidden shadow-md group">
                     <img 
-                       src="https://images.unsplash.com/photo-1574236170880-640fb0855277?auto=format&fit=crop&q=80&w=400" 
+                       src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg" 
                        alt="Old Tbilisi Streets" 
                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                  </div>
                  <div className="h-64 rounded-2xl overflow-hidden shadow-md group">
                     <img 
-                       src="https://images.unsplash.com/photo-1541300613939-71366b37c92e?auto=format&fit=crop&q=80&w=400" 
+                       src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1541300613939-71366b37c92e.jpg" 
                        alt="Georgian Wine" 
                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
@@ -77,14 +77,14 @@ const OurStorySection = () => {
               <div className="space-y-4">
                  <div className="h-64 rounded-2xl overflow-hidden shadow-md group">
                     <img 
-                       src="https://images.unsplash.com/photo-1473676766723-1d6eb758a5fc?auto=format&fit=crop&q=80&w=400" 
+                       src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1578326457399-3b34dbbf23b8.jpg" 
                        alt="Hiking in Kazbegi" 
                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                  </div>
                  <div className="h-48 rounded-2xl overflow-hidden shadow-md group">
                     <img 
-                       src="https://images.unsplash.com/photo-1589828949826-6f10137452d3?auto=format&fit=crop&q=80&w=400" 
+                       src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1550355291-bbee04a92027.jpg" 
                        alt="Our Transport Fleet" 
                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />

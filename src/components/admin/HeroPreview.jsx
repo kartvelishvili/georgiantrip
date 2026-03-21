@@ -11,7 +11,7 @@ const HeroPreview = ({ settings, activeLanguage = 'en' }) => {
 
   const title = getLocalizedText('title');
   const subtitle = getLocalizedText('subtitle');
-  const imageUrl = settings?.image_url || 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?q=80&w=2000&auto=format&fit=crop';
+  const imageUrl = settings?.image_url || 'https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1565008447742-97f6f38c985c.jpg?q=80&w=2000&auto=format&fit=crop';
 
   return (
     <div className="border border-gray-200 rounded-xl overflow-hidden shadow-md bg-white">

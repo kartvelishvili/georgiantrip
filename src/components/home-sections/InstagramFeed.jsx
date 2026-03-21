@@ -29,7 +29,7 @@ const InstagramFeed = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
            {images.map((alt, i) => (
              <div key={i} className="aspect-square rounded-xl overflow-hidden cursor-pointer group relative">
-                <img alt={alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://images.unsplash.com/photo-1615003380049-a716b685b98e" />
+                <img alt={alt} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" src="https://s3.ihost.ge/site-georgiantrip-com/site-images/unsplash-1615003380049-a716b685b98e.jpg" />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                    <Instagram className="w-8 h-8 text-white" />
                 </div>

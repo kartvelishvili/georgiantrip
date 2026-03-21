@@ -114,19 +114,26 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-4">
-      <div className="w-full max-w-md mb-8 text-center">
+    <div className="min-h-screen relative flex flex-col justify-center items-center p-4">
+      {/* Georgian Landscape Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://s3.ihost.ge/site-georgiantrip-com/site-images/login-bg-georgia-landscape.jpg')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/50" />
+
+      <div className="relative z-10 w-full max-w-md mb-8 text-center">
         <div 
           onClick={() => navigate('/')}
           className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-xl shadow-green-600/20 cursor-pointer"
         >
           <span className="text-white font-heading font-bold text-2xl">GT</span>
         </div>
-        <h1 className="text-3xl font-heading font-bold text-gray-900 mb-2">Driver Portal</h1>
-        <p className="text-gray-500">Manage your bookings and earnings</p>
+        <h1 className="text-3xl font-heading font-bold text-white mb-2 drop-shadow-lg">Driver Portal</h1>
+        <p className="text-gray-200 drop-shadow">Manage your bookings and earnings</p>
       </div>
 
-      <Card className="w-full max-w-md p-6 shadow-xl border-gray-100">
+      <Card className="relative z-10 w-full max-w-md p-6 shadow-xl border-gray-100 bg-white/95 backdrop-blur-xl">
         <Tabs defaultValue="login">
           <TabsList className="grid w-full grid-cols-2 mb-6">
             <TabsTrigger value="login">Sign In</TabsTrigger>
@@ -228,7 +235,7 @@ const Login = () => {
         </Tabs>
       </Card>
 
-      <Button variant="ghost" className="mt-8 text-gray-500" onClick={() => navigate('/')}>
+      <Button variant="ghost" className="relative z-10 mt-8 text-gray-200 hover:text-white" onClick={() => navigate('/')}>
         <ArrowLeft className="w-4 h-4 mr-2" />
         Back to Home
       </Button>
