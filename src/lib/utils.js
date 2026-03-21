@@ -11,7 +11,7 @@ export function formatCurrency(amount) {
     currency: 'GEL',
     minimumFractionDigits: 0,
     maximumFractionDigits: 0,
-  }).format(amount).replace('GEL', '₾');
+  }).format(Number(amount) || 0).replace('GEL', '₾');
 }
 
 export function slugify(text) {
