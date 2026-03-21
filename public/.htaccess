@@ -1,6 +1,18 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Do NOT rewrite API/backend routes — let them pass to Node.js
+  RewriteCond %{REQUEST_URI} ^/db [OR]
+  RewriteCond %{REQUEST_URI} ^/auth [OR]
+  RewriteCond %{REQUEST_URI} ^/api [OR]
+  RewriteCond %{REQUEST_URI} ^/rest [OR]
+  RewriteCond %{REQUEST_URI} ^/rpc [OR]
+  RewriteCond %{REQUEST_URI} ^/storage [OR]
+  RewriteCond %{REQUEST_URI} ^/functions
+  RewriteRule ^ - [L]
+
+  # SPA fallback: rewrite non-file/non-directory to index.html
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^ index.html [L]
