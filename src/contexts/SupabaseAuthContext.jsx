@@ -50,10 +50,20 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (error) {
+      let title = 'Sign up Failed';
+      let description = error.message || 'Something went wrong';
+      
+      if (error.message?.includes('already registered') || error.message?.includes('23505')) {
+        description = 'This email is already registered. Try signing in instead.';
+      } else if (error.message?.includes('Password')) {
+        title = 'Weak Password';
+        description = error.message;
+      }
+      
       toast({
-        variant: "destructive",
-        title: "Sign up Failed",
-        description: error.message || "Something went wrong",
+        variant: 'destructive',
+        title,
+        description,
       });
     }
 
@@ -66,15 +76,29 @@ export const AuthProvider = ({ children }) => {
       password,
     });
 
-    // We don't toast error here anymore to let the login page handle specific UI feedback
-    // But we still return both data and error
-    
     if (error) {
-       console.error("Login error:", error.message);
+      let title = 'Login Failed';
+      let description = error.message || 'Something went wrong';
+      
+      // User-friendly messages
+      if (error.message?.includes('Invalid login credentials')) {
+        description = 'Incorrect email or password. Please try again.';
+      } else if (error.message?.includes('Email not confirmed')) {
+        description = 'Please verify your email address first.';
+      } else if (error.message?.includes('Too many requests')) {
+        title = 'Too Many Attempts';
+        description = 'Please wait a moment and try again.';
+      }
+      
+      toast({
+        variant: 'destructive',
+        title,
+        description,
+      });
     }
 
     return { data, error };
-  }, []);
+  }, [toast]);
 
   const signOut = useCallback(async () => {
     const { error } = await supabase.auth.signOut();

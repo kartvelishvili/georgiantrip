@@ -37,7 +37,10 @@ const Login = () => {
     
     try {
       const { error } = await signIn(email, password);
-      if (error) throw error;
+      if (error) {
+        // Toast already shown by signIn
+        return;
+      }
       
       // Check role after login
       const { data: { user } } = await supabase.auth.getUser();
@@ -52,7 +55,7 @@ const Login = () => {
       
       toast({ title: 'Welcome back!' });
     } catch (error) {
-      // Error handled in signIn
+      toast({ variant: 'destructive', title: 'Login Error', description: error.message || 'Something went wrong' });
     } finally {
       setLoading(false);
     }
