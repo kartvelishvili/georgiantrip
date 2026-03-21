@@ -207,7 +207,6 @@ function App() {
           </Helmet>
           <AppRoutes />
           <Toaster />
-          <Toaster />
         </LanguageProvider>
       </AuthProvider>
     </ErrorBoundary>

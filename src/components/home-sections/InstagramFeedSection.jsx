@@ -41,7 +41,7 @@ const InstagramFeedSection = () => {
             </h2>
             <p className="text-gray-500 mt-2 max-w-md">
               Share your journey with us using #GeorgianTrip. See the beauty of Georgia through our travelers' eyes.
-              {process.env.NODE_ENV === 'development' && (
+              {import.meta.env.DEV && (
                 <span className="block text-xs text-amber-600 mt-1">
                   🔗 Real Instagram API integration ready
                 </span>

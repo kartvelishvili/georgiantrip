@@ -1,8 +1,8 @@
 // Service to handle Instagram feed data
 // Fetches real Instagram posts using Instagram Basic Display API
 
-const INSTAGRAM_ACCESS_TOKEN = process.env.VITE_INSTAGRAM_ACCESS_TOKEN || '';
-const INSTAGRAM_USER_ID = process.env.VITE_INSTAGRAM_USER_ID || '';
+const INSTAGRAM_ACCESS_TOKEN = import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN || '';
+const INSTAGRAM_USER_ID = import.meta.env.VITE_INSTAGRAM_USER_ID || '';
 
 // Fallback posts in case API fails
 const FALLBACK_POSTS = [
@@ -90,7 +90,7 @@ export const fetchInstagramPosts = async () => {
 // Function to fetch specific Instagram posts using oEmbed API
 const fetchSpecificInstagramPosts = async () => {
   // Get post URLs from environment variables
-  const postUrlsString = process.env.VITE_INSTAGRAM_POST_URLS || '';
+  const postUrlsString = import.meta.env.VITE_INSTAGRAM_POST_URLS || '';
   const postUrls = postUrlsString.split(',').map(url => url.trim()).filter(url => url.length > 0);
 
   if (postUrls.length === 0) {
