@@ -99,7 +99,7 @@ const BookingsManagement = () => {
                 {booking.date} at {booking.time}
               </p>
               <p className="text-sm text-gray-600">
-                Distance: {booking.distance_km?.toFixed(1)} km
+                Distance: {Number(booking.distance_km || 0).toFixed(1)} km
               </p>
             </div>
             

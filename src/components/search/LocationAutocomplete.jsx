@@ -169,7 +169,7 @@ const LocationAutocomplete = ({
                   </div>
                   <span className="text-xs text-gray-400 ml-6">
                       {/* Added optional chaining and fallback to prevent crash if lat/lng is null */}
-                      {location.lat?.toFixed(4) || '0.0000'}, {location.lng?.toFixed(4) || '0.0000'}
+                      {Number(location.lat || 0).toFixed(4)}, {Number(location.lng || 0).toFixed(4)}
                   </span>
                 </div>
                 {value?.id === location.id && <Check className="w-4 h-4 text-green-600" />}

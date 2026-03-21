@@ -295,7 +295,7 @@ const LocationsManagement = () => {
                     locations.map((loc) => (
                         <TableRow key={loc.id}>
                             <TableCell className="font-medium">{loc.name_en}</TableCell>
-                            <TableCell className="text-xs text-gray-500 font-mono">{loc.lat?.toFixed(4)}, {loc.lng?.toFixed(4)}</TableCell>
+                            <TableCell className="text-xs text-gray-500 font-mono">{Number(loc.lat)?.toFixed(4)}, {Number(loc.lng)?.toFixed(4)}</TableCell>
                             <TableCell>{loc.priority}</TableCell>
                             <TableCell>
                                 <span className={`px-2 py-1 rounded-full text-xs font-bold ${loc.is_active ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
