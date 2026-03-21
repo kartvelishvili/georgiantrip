@@ -34,7 +34,7 @@ const TeamSection = () => {
     {
        name: "Vasil Sidamonidze",
        role: "Founder & CEO",
-       image: "https://lekwouwaajnnjhoomyrc.supabase.co/storage/v1/object/public/portfolio/portfolio/3e082f34-8ddc-4024-b3fa-89763fcb3605-client-logo-1766261719548.jpeg",
+       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400",
        bio: "A visionary leader with deep roots in Georgian tourism. Vasil founded GeorgianTrip with a mission to connect the world to the unparalleled beauty and hospitality of the Caucasus. His leadership drives the company's commitment to authentic experiences."
     },
     {

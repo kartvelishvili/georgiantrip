@@ -11,31 +11,34 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const { Pool } = pg;
 
-// ── Configuration ──
-const PORT = 3001;
-const JWT_SECRET = 'georgiantrip-jwt-secret-2026-ihost';
+// ── Configuration (from .env) ──
+const PORT = process.env.PORT || 3001;
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const pool = new Pool({
-  connectionString: 'postgresql://user_georgiantrip_com:D6ZYerpxQSfxWwemPUra@194.163.172.62:5432/site_georgiantrip_com',
+  connectionString: process.env.DATABASE_URL,
   max: 20,
   idleTimeoutMillis: 30000,
 });
 
 const s3 = new S3Client({
-  endpoint: 'https://s3.ihost.ge',
-  region: 'us-east-1',
+  endpoint: process.env.S3_ENDPOINT,
+  region: process.env.S3_REGION || 'us-east-1',
   credentials: {
-    accessKeyId: '6aoIaAV8AOW6OPH9',
-    secretAccessKey: 'HFbIZ18R1ptcEjw4vVrTrZ29en0CWG90',
+    accessKeyId: process.env.S3_ACCESS_KEY,
+    secretAccessKey: process.env.S3_SECRET_KEY,
   },
   forcePathStyle: true,
 });
 
-const S3_BUCKET = 'site-georgiantrip-com';
-const S3_PUBLIC_URL = 'https://s3.ihost.ge/site-georgiantrip-com';
+const S3_BUCKET = process.env.S3_BUCKET;
+const S3_PUBLIC_URL = process.env.S3_PUBLIC_URL;
 
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 

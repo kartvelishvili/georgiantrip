@@ -1,4 +1,4 @@
-const GOOGLE_MAPS_API_KEY = 'AIzaSyBkYNWfkADjyv4T-17o8TJx0LNMKsy0Tig';
+const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
 export const calculateDistance = async (origin, destination, stops = []) => {
   try {
