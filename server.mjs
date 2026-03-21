@@ -12,8 +12,13 @@ import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
 dotenv.config();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const { Pool } = pg;
 
@@ -1817,6 +1822,15 @@ app.patch('/api/sms-settings/:id', authenticateToken, async (req, res) => {
 });
 
 // ══════════════════════════════════════
+//  STATIC FILES + SPA FALLBACK
+// ══════════════════════════════════════
+const distPath = path.join(__dirname, 'dist');
+app.use(express.static(distPath));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
+
+// ══════════════════════════════════════
 //  START
 // ══════════════════════════════════════
 
@@ -1824,5 +1838,6 @@ app.listen(PORT, () => {
   console.log(`\n🚀 GeorgianTrip API Server running on http://localhost:${PORT}`);
   console.log(`   Database: iHost PostgreSQL (194.163.172.62)`);
   console.log(`   Storage:  iHost S3 (s3.ihost.ge)`);
-  console.log(`   Auth:     JWT-based\n`);
+  console.log(`   Auth:     JWT-based`);
+  console.log(`   Static:   ${distPath}\n`);
 });
