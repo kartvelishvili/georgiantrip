@@ -93,14 +93,21 @@ const AdminLoginPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen relative flex items-center justify-center p-4">
+      {/* Tourism Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1565008576549-57569a49371d?auto=format&fit=crop&q=80&w=1920')" }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/50" />
+      
+      <div className="relative z-10 w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center shadow-xl shadow-green-900/10 mx-auto mb-4">
+          <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center shadow-xl shadow-green-900/30 mx-auto mb-4 backdrop-blur-sm">
             <span className="text-white font-heading font-bold text-2xl">GT</span>
           </div>
-          <h1 className="text-2xl font-heading font-bold text-gray-900">Admin Panel Access</h1>
-          <p className="text-gray-500 mt-2">Sign in to manage GeorgianTrip platform</p>
+          <h1 className="text-2xl font-heading font-bold text-white drop-shadow-lg">Admin Panel Access</h1>
+          <p className="text-gray-200 mt-2 drop-shadow">Sign in to manage GeorgianTrip platform</p>
         </div>
 
         <Card className="border-none shadow-xl">
@@ -185,7 +192,7 @@ const AdminLoginPage = () => {
         </Card>
         
         <div className="mt-8 text-center">
-          <a href="/" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+          <a href="/" className="text-sm text-gray-300 hover:text-white transition-colors drop-shadow">
             ← Back to Main Website
           </a>
         </div>

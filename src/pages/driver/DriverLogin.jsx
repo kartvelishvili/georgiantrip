@@ -161,9 +161,19 @@ const DriverLogin = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
-        <Card className="w-full max-w-md p-8 space-y-8 bg-white shadow-xl rounded-2xl">
+    <div className="min-h-screen relative flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+        {/* Tourism Background */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&q=80&w=1920')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-green-900/50" />
+        
+        <Card className="relative z-10 w-full max-w-md p-8 space-y-8 bg-white/95 backdrop-blur-md shadow-2xl rounded-2xl border-0">
             <div className="text-center">
+                <div className="w-14 h-14 bg-green-600 rounded-xl flex items-center justify-center shadow-lg mx-auto mb-3">
+                  <span className="text-white font-bold text-xl">GT</span>
+                </div>
                 <h2 className="text-3xl font-extrabold text-gray-900">Driver Portal</h2>
                 <p className="mt-2 text-sm text-gray-600">Join our network of professional drivers</p>
             </div>
