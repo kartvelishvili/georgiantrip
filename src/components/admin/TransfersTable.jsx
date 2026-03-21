@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Edit, Trash2, Plus, GripVertical, Loader2 } from 'lucide-react';
 import TransferForm from './TransferForm';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useToast } from '@/components/ui/use-toast';
 import { Reorder, useDragControls } from 'framer-motion';
 
@@ -210,6 +211,7 @@ const TransfersTable = () => {
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="max-w-3xl overflow-y-auto max-h-[90vh]">
+           <VisuallyHidden><DialogTitle>Transfer Form</DialogTitle></VisuallyHidden>
            {isFormOpen && (
                <TransferForm transfer={editingTransfer} onClose={handleFormClose} />
            )}

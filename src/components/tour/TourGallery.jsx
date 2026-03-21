@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -56,7 +57,8 @@ const TourGallery = ({ images }) => {
       </div>
 
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-black border-none flex items-center justify-center overflow-hidden">
+        <DialogContent className="max-w-[95vw] h-[90vh] p-0 bg-black border-none flex items-center justify-center overflow-hidden" aria-describedby={undefined}>
+            <VisuallyHidden><DialogTitle>Image Gallery</DialogTitle></VisuallyHidden>
             <button onClick={() => setIsOpen(false)} className="absolute top-4 right-4 text-white/70 hover:text-white z-50">
                 <X className="w-8 h-8" />
             </button>

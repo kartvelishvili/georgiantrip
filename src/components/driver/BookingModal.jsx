@@ -53,8 +53,8 @@ const BookingModal = ({ booking, isOpen, onClose, onUpdateStatus }) => {
                     <div className="space-y-1 text-sm">
                         <div className="flex justify-between"><span>Distance</span> <span>{booking.distance_km} km</span></div>
                         <div className="flex justify-between"><span>Total Price</span> <span className="font-bold text-green-700">₾{booking.final_price || booking.total_price}</span></div>
-                        <div className="flex justify-between text-gray-400 text-xs"><span>Platform Fee (30%)</span> <span>₾{((booking.final_price || booking.total_price) * 0.3).toFixed(1)}</span></div>
-                        <div className="flex justify-between text-gray-500 font-bold border-t pt-1 mt-1"><span>Your Net Earning</span> <span>₾{((booking.final_price || booking.total_price) * 0.7).toFixed(1)}</span></div>
+                        <div className="flex justify-between text-gray-400 text-xs"><span>Platform Fee (30%)</span> <span>₾{(Number(booking.final_price || booking.total_price || 0) * 0.3).toFixed(1)}</span></div>
+                        <div className="flex justify-between text-gray-500 font-bold border-t pt-1 mt-1"><span>Your Net Earning</span> <span>₾{(Number(booking.final_price || booking.total_price || 0) * 0.7).toFixed(1)}</span></div>
                     </div>
                 </div>
             </div>

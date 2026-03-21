@@ -192,7 +192,7 @@ const DriverBookings = () => {
                         <div className="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end border-t md:border-0 pt-4 md:pt-0">
                             <div className="text-right">
                                 <p className="text-xs text-gray-400">Your Net</p>
-                                <p className="text-xl font-bold text-green-600">₾{booking.driver_earnings || (booking.total_price * 0.7).toFixed(0)}</p>
+                                <p className="text-xl font-bold text-green-600">₾{booking.driver_earnings || (Number(booking.total_price || 0) * 0.7).toFixed(0)}</p>
                             </div>
                             <Button variant="outline" onClick={() => setSelectedBooking(booking)}>View</Button>
                         </div>

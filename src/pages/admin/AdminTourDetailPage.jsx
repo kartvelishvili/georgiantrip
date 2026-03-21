@@ -10,7 +10,8 @@ import PricingManager from '@/components/admin/PricingManager';
 import ItineraryManager from '@/components/admin/ItineraryManager';
 import IncludedItemsManager from '@/components/admin/IncludedItemsManager';
 import TourForm from '@/components/admin/TourForm'; // Reuse existing form for basic info
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 
 const AdminTourDetailPage = () => {
   const { tourId } = useParams();
@@ -113,6 +114,7 @@ const AdminTourDetailPage = () => {
       {/* Edit Basic Info Modal */}
       <Dialog open={isEditBasicOpen} onOpenChange={setIsEditBasicOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+             <VisuallyHidden><DialogTitle>Edit Tour</DialogTitle></VisuallyHidden>
              <TourForm 
                 tour={tour} 
                 onClose={(shouldRefresh) => {

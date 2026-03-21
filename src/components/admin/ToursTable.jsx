@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Edit, Trash2, Plus, Star, Settings, GripVertical } from 'lucide-react';
 import TourForm from './TourForm';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { useToast } from '@/components/ui/use-toast';
 import { Link } from 'react-router-dom';
 import { formatPrice } from '@/lib/currencyUtils';
@@ -241,6 +242,7 @@ const ToursTable = () => {
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+           <VisuallyHidden><DialogTitle>Tour Form</DialogTitle></VisuallyHidden>
            {isFormOpen && (
                <TourForm tour={editingTour} onClose={handleFormClose} />
            )}

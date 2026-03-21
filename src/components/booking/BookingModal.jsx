@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import { X, ChevronLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -61,7 +62,8 @@ const BookingModal = ({ isOpen, onClose, car, searchParams }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && handleClose()}>
-      <DialogContent className="sm:max-w-[600px] p-0 gap-0 overflow-hidden bg-white rounded-2xl max-h-[90vh] flex flex-col">
+      <DialogContent className="sm:max-w-[600px] p-0 gap-0 overflow-hidden bg-white rounded-2xl max-h-[90vh] flex flex-col" aria-describedby={undefined}>
+        <VisuallyHidden><DialogTitle>{stepTitles[step - 1]}</DialogTitle></VisuallyHidden>
         {/* Header */}
         <div className="p-4 border-b border-gray-100 flex items-center justify-between bg-white z-10 sticky top-0">
            <div className="flex items-center gap-2">

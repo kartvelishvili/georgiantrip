@@ -8,7 +8,8 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { useToast } from '@/components/ui/use-toast';
 import { Plus, Edit, Trash2, Eye, Clock, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
-import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
+import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
 import TourForm from '@/components/admin/TourForm';
 
 const ToursManagementPage = () => {
@@ -186,6 +187,7 @@ const ToursManagementPage = () => {
       {/* Create / Edit Tour Dialog */}
       <Dialog open={isFormOpen} onOpenChange={(open) => { if (!open) handleFormClose(false); }}>
         <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <VisuallyHidden><DialogTitle>Tour Form</DialogTitle></VisuallyHidden>
           <TourForm tour={editingTour} onClose={handleFormClose} />
         </DialogContent>
       </Dialog>
