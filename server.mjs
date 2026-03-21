@@ -17,6 +17,13 @@ import { fileURLToPath } from 'url';
 
 dotenv.config();
 
+const ALLOWED_ORIGINS = [
+  'https://georgiantrip.com',
+  'https://www.georgiantrip.com',
+  'http://localhost:3000',
+  'http://localhost:5173',
+];
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -48,7 +55,15 @@ const S3_PUBLIC_URL = process.env.S3_PUBLIC_URL;
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: (origin, cb) => {
+    if (!origin || ALLOWED_ORIGINS.includes(origin)) return cb(null, true);
+    // Allow Hostinger Horizons preview origins
+    if (origin.includes('hostinger.com') || origin.includes('hostinger.dev')) return cb(null, true);
+    cb(null, false);
+  },
+  credentials: true,
+}));
 app.use(express.json());
 
 // ── Auth Middleware ──

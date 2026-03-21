@@ -5,9 +5,8 @@
  * All existing code using supabase.from(...).select()... continues to work.
  */
 
-const API_URL = window.location.hostname === 'localhost' 
-  ? 'http://localhost:3001' 
-  : '';
+const API_URL = import.meta.env.VITE_API_URL 
+  || (window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'http://194.163.172.62:3002');
 
 // ── Query Builder (mimics Supabase PostgREST client) ──
 
