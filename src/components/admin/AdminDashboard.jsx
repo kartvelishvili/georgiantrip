@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from '@/lib/customSupabaseClient';
+import { useLanguage } from '@/contexts/LanguageContext';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card } from '@/components/ui/card';
 import { Car, Users, Calendar, MapPin, Tag, AlertCircle, Compass, DollarSign } from 'lucide-react';
@@ -26,6 +27,7 @@ const StatCard = ({ label, value, icon: Icon, iconBg, iconColor, valueColor = 't
 );
 
 const AdminDashboard = () => {
+  const { t } = useLanguage();
   const [stats, setStats] = useState({
     totalCars: 0,
     activeCars: 0,
@@ -82,14 +84,14 @@ const AdminDashboard = () => {
     <div className="space-y-8">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-heading font-bold text-gray-900">Dashboard</h1>
-        <p className="text-sm text-gray-500 mt-1">Overview of your platform activity</p>
+        <h1 className="text-2xl font-heading font-bold text-gray-900">{t('admin_dashboard')}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t('admin_overview')}</p>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
-          label="Transfer Bookings"
+          label={t('admin_transferBookings')}
           value={stats.totalBookings}
           icon={Calendar}
           iconBg="bg-emerald-50"
@@ -97,7 +99,7 @@ const AdminDashboard = () => {
           valueColor="text-emerald-700"
         />
         <StatCard
-          label="Tour Bookings"
+          label={t('admin_tourBookings')}
           value={stats.totalTourBookings}
           icon={Compass}
           iconBg="bg-blue-50"
@@ -105,16 +107,16 @@ const AdminDashboard = () => {
           valueColor="text-blue-700"
         />
         <StatCard
-          label="Active Vehicles"
+          label={t('admin_activeVehicles')}
           value={stats.activeCars}
           icon={Car}
           iconBg="bg-green-50"
           iconColor="text-green-600"
           valueColor="text-green-600"
-          trend={`${stats.totalCars} total fleet`}
+          trend={`${stats.totalCars} ${t('admin_totalFleet')}`}
         />
         <StatCard
-          label="Registered Drivers"
+          label={t('admin_registeredDrivers')}
           value={stats.totalDrivers}
           icon={Users}
           iconBg="bg-purple-50"
@@ -131,8 +133,8 @@ const AdminDashboard = () => {
                 <AlertCircle className="w-5 h-5 text-amber-600" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-amber-800">{stats.pendingCars} vehicles pending review</p>
-                <p className="text-xs text-amber-600">Go to Cars to approve or reject</p>
+                <p className="text-sm font-semibold text-amber-800">{stats.pendingCars} {t('admin_vehiclesPending')}</p>
+                <p className="text-xs text-amber-600">{t('admin_goToCars')}</p>
               </div>
             </div>
           )}
@@ -142,8 +144,8 @@ const AdminDashboard = () => {
                 <Users className="w-5 h-5 text-orange-600" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-orange-800">{stats.pendingDrivers} drivers awaiting approval</p>
-                <p className="text-xs text-orange-600">Go to Drivers to review applications</p>
+                <p className="text-sm font-semibold text-orange-800">{stats.pendingDrivers} {t('admin_driversAwaiting')}</p>
+                <p className="text-xs text-orange-600">{t('admin_goToDrivers')}</p>
               </div>
             </div>
           )}
@@ -153,12 +155,12 @@ const AdminDashboard = () => {
       {/* Main Content Tabs */}
       <Tabs defaultValue="bookings" className="w-full">
         <TabsList className="w-full justify-start bg-gray-100/80 p-1 rounded-xl mb-6 overflow-x-auto h-auto gap-1">
-          <TabsTrigger value="bookings" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Calendar className="w-4 h-4 mr-2"/>Bookings</TabsTrigger>
-          <TabsTrigger value="cars" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Car className="w-4 h-4 mr-2"/>Cars</TabsTrigger>
-          <TabsTrigger value="drivers" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Users className="w-4 h-4 mr-2"/>Drivers</TabsTrigger>
-          <TabsTrigger value="tours" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Tag className="w-4 h-4 mr-2"/>Tours</TabsTrigger>
-          <TabsTrigger value="locations" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><MapPin className="w-4 h-4 mr-2"/>Locations</TabsTrigger>
-          <TabsTrigger value="pricing" className="px-4 py-2 text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><DollarSign className="w-4 h-4 mr-2"/>Pricing</TabsTrigger>
+          <TabsTrigger value="bookings" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Calendar className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_bookings')}</TabsTrigger>
+          <TabsTrigger value="cars" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Car className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_cars')}</TabsTrigger>
+          <TabsTrigger value="drivers" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Users className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_drivers')}</TabsTrigger>
+          <TabsTrigger value="tours" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><Tag className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_tours')}</TabsTrigger>
+          <TabsTrigger value="locations" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><MapPin className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_locations')}</TabsTrigger>
+          <TabsTrigger value="pricing" className="px-3 sm:px-4 py-2 text-xs sm:text-sm data-[state=active]:bg-white data-[state=active]:text-gray-900 data-[state=active]:shadow-sm rounded-lg"><DollarSign className="w-4 h-4 mr-1 sm:mr-2"/>{t('admin_pricing')}</TabsTrigger>
         </TabsList>
         
         <div className="bg-transparent mt-4">

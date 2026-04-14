@@ -40,7 +40,7 @@ const FinancialReportModal = ({ isOpen, onClose, driver, financialData }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-3xl">
+      <DialogContent className="max-w-[95vw] sm:max-w-3xl">
         <DialogHeader>
           <DialogTitle>Financial Report: {driver.first_name} {driver.last_name}</DialogTitle>
           <DialogDescription>Detailed earnings and payment history.</DialogDescription>

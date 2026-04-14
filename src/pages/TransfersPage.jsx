@@ -62,7 +62,7 @@ const TransfersPage = () => {
             <Navigation className="w-4 h-4" />
             Private Transfers
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">{content.title || "Transfer Routes"}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold mb-4">{content.title || "Transfer Routes"}</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto mb-10">
             {content.subtitle || "Fixed price private transfers to all major destinations in Georgia. Book online, pay driver in cash."}
           </p>

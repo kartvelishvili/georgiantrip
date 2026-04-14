@@ -161,6 +161,7 @@ const TransfersTable = () => {
       </div>
 
       <div className="bg-white rounded-md border overflow-hidden">
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -207,10 +208,11 @@ const TransfersTable = () => {
             )}
           </Reorder.Group>
         </Table>
+        </div>
       </div>
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="max-w-3xl overflow-y-auto max-h-[90vh]">
+        <DialogContent className="max-w-[95vw] sm:max-w-3xl overflow-y-auto max-h-[90vh]">
            <VisuallyHidden><DialogTitle>Transfer Form</DialogTitle></VisuallyHidden>
            {isFormOpen && (
                <TransferForm transfer={editingTransfer} onClose={handleFormClose} />

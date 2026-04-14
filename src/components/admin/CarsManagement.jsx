@@ -162,14 +162,15 @@ const CarsManagement = () => {
                  <div className="text-center py-12 bg-white rounded-xl border border-gray-100 text-gray-500">No cars found matching criteria.</div>
             ) : (
                 <div className="bg-white rounded-xl border border-gray-100 shadow-sm overflow-hidden">
+                  <div className="overflow-x-auto">
                     <table className="w-full text-sm text-left">
                         <thead className="bg-gray-50 text-gray-600 font-semibold border-b border-gray-100">
                             <tr>
-                                <th className="px-6 py-4">Vehicle</th>
-                                <th className="px-6 py-4">Driver</th>
-                                <th className="px-6 py-4">Specs</th>
-                                <th className="px-6 py-4">Status</th>
-                                <th className="px-6 py-4 text-right">Actions</th>
+                                <th className="px-4 sm:px-6 py-4">Vehicle</th>
+                                <th className="px-4 sm:px-6 py-4">Driver</th>
+                                <th className="px-4 sm:px-6 py-4 hidden sm:table-cell">Specs</th>
+                                <th className="px-4 sm:px-6 py-4">Status</th>
+                                <th className="px-4 sm:px-6 py-4 text-right">Actions</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100">
@@ -268,13 +269,14 @@ const CarsManagement = () => {
                             ))}
                         </tbody>
                     </table>
+                  </div>
                 </div>
             )}
         </div>
 
         {/* Edit Dialog */}
         <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-            <DialogContent className="max-w-4xl max-h-[90vh] p-0 overflow-hidden">
+            <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] p-0 overflow-hidden">
                 <DialogHeader className="px-6 py-4 border-b">
                     <DialogTitle>Vehicle Details</DialogTitle>
                 </DialogHeader>

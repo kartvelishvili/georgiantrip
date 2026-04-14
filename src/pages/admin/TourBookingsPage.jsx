@@ -319,7 +319,7 @@ const TourBookingsPage = () => {
 
       {/* Booking Detail Modal */}
       <Dialog open={detailOpen} onOpenChange={setDetailOpen}>
-        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-xl">Tour Booking Details</DialogTitle>
             <DialogDescription>Full booking, passenger and payment information</DialogDescription>

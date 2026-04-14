@@ -31,7 +31,7 @@ const ContactPage = () => {
             <MessageSquare className="w-4 h-4" />
             Get in Touch
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">Contact Us</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold mb-4">Contact Us</h1>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             We'd love to hear from you. Our friendly team is always here to chat.
           </p>
@@ -52,7 +52,7 @@ const ContactPage = () => {
         </div>
 
         {/* Map Section */}
-        <div className="mt-16 bg-gray-100 rounded-2xl overflow-hidden h-[400px] shadow-lg border border-gray-200">
+        <div className="mt-10 sm:mt-16 bg-gray-100 rounded-2xl overflow-hidden h-48 sm:h-64 md:h-80 lg:h-[400px] shadow-lg border border-gray-200">
           <iframe 
             src={content.mapEmbedUrl || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.597362777326!2d44.79377401568057!3d41.69666797923714!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440cf6e37e179d%3A0x6001a0e1b071060!2sRustaveli%20Ave%2C%20Tbilisi!5e0!3m2!1sen!2sge!4v1689771234567!5m2!1sen!2sge"}
             width="100%" 

@@ -60,7 +60,7 @@ const TourBookingModal = ({ isOpen, onClose, tour, initialData }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[500px] p-0 overflow-hidden bg-white rounded-2xl">
+      <DialogContent className="max-w-[95vw] sm:max-w-[500px] p-0 overflow-hidden bg-white rounded-2xl">
         <DialogHeader className="p-6 border-b border-gray-100">
            <DialogTitle className="text-xl font-bold">{success ? 'Booking Confirmed!' : 'Book This Tour'}</DialogTitle>
         </DialogHeader>

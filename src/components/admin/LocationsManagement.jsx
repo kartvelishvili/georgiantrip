@@ -196,7 +196,7 @@ const LocationsManagement = () => {
                         <Upload className="w-4 h-4" /> Bulk Import
                     </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-2xl">
+                <DialogContent className="max-w-[95vw] sm:max-w-2xl">
                     <DialogHeader>
                         <DialogTitle>Bulk Import Locations</DialogTitle>
                     </DialogHeader>

@@ -31,7 +31,7 @@ const HeroSection = () => {
   const bgImage = settings?.image_url || "https://s3.ihost.ge/site-georgiantrip-com/site-images/postimg-179254820-super.jpg.jpg";
 
   return (
-    <div className="relative min-h-[780px] flex items-center justify-center overflow-hidden">
+    <div className="relative min-h-[600px] sm:min-h-[700px] md:min-h-[780px] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -43,7 +43,7 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/20" />
       </div>
 
-      <div className="relative z-10 container-custom pt-32 pb-32">
+      <div className="relative z-10 container-custom pt-24 pb-20 sm:pt-32 sm:pb-32 px-4">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -60,7 +60,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white mb-6 tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-7xl font-heading font-bold text-white mb-6 tracking-tight drop-shadow-[0_2px_10px_rgba(0,0,0,0.3)]"
           >
             {title}
           </motion.h1>
@@ -69,7 +69,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-xl md:text-2xl text-white/85 mb-8 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-sm"
+            className="text-lg sm:text-xl md:text-2xl text-white/85 mb-8 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-sm"
           >
             {subtitle}
           </motion.p>

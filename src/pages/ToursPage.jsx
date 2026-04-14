@@ -49,7 +49,7 @@ const ToursPage = () => {
             <Compass className="w-4 h-4" />
             Explore Georgia
           </span>
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-4">{content.title || t('tours')}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold mb-4">{content.title || t('tours')}</h1>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             {content.subtitle || "Discover the beauty of Georgia with our curated selection of tours."}
           </p>

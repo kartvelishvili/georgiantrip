@@ -84,7 +84,7 @@ const DriverApprovalModal = ({ isOpen, onClose, driver, onUpdate }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+      <DialogContent className="max-w-[95vw] sm:max-w-2xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Review Driver Application</DialogTitle>
           <DialogDescription>Review documents and approve or reject {driver.first_name} {driver.last_name}.</DialogDescription>

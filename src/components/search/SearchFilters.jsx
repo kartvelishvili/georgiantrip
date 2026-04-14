@@ -24,7 +24,7 @@ const SearchFilters = ({ filters, onChange }) => {
             {/* Top Row: Quick Toggles */}
             <div className="flex flex-wrap items-center gap-2">
                 <Select value={filters.class} onValueChange={(v) => updateFilter('class', v === 'all' ? '' : v)}>
-                    <SelectTrigger className="w-[120px] h-9 text-sm bg-white border-gray-200 rounded-lg">
+                    <SelectTrigger className="w-full sm:w-[120px] h-9 text-sm bg-white border-gray-200 rounded-lg">
                         <SelectValue placeholder="Class" />
                     </SelectTrigger>
                     <SelectContent>
@@ -36,7 +36,7 @@ const SearchFilters = ({ filters, onChange }) => {
                 </Select>
 
                 <Select value={filters.carType} onValueChange={(v) => updateFilter('carType', v === 'all' ? '' : v)}>
-                    <SelectTrigger className="w-[130px] h-9 text-sm bg-white border-gray-200 rounded-lg">
+                    <SelectTrigger className="w-full sm:w-[130px] h-9 text-sm bg-white border-gray-200 rounded-lg">
                         <SelectValue placeholder="Car type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -49,7 +49,7 @@ const SearchFilters = ({ filters, onChange }) => {
                 </Select>
                 
                  <Select value={filters.fuelType} onValueChange={(v) => updateFilter('fuelType', v === 'all' ? '' : v)}>
-                    <SelectTrigger className="w-[130px] h-9 text-sm bg-white border-gray-200 rounded-lg">
+                    <SelectTrigger className="w-full sm:w-[130px] h-9 text-sm bg-white border-gray-200 rounded-lg">
                         <SelectValue placeholder="Fuel type" />
                     </SelectTrigger>
                     <SelectContent>
@@ -63,7 +63,7 @@ const SearchFilters = ({ filters, onChange }) => {
                 </Select>
 
                 <Select value={filters.passengers} onValueChange={(v) => updateFilter('passengers', v === 'all' ? '' : v)}>
-                    <SelectTrigger className="w-[160px] h-9 text-sm bg-white border-gray-200 rounded-lg">
+                    <SelectTrigger className="w-full sm:w-[160px] h-9 text-sm bg-white border-gray-200 rounded-lg">
                         <SelectValue placeholder="Passengers" />
                     </SelectTrigger>
                     <SelectContent>
@@ -80,7 +80,7 @@ const SearchFilters = ({ filters, onChange }) => {
                     <Label htmlFor="pets" className="text-sm cursor-pointer font-medium text-gray-600">Pets allowed</Label>
                 </div>
 
-                <div className="flex-grow min-w-[200px] relative">
+                <div className="flex-grow min-w-0 sm:min-w-[200px] relative">
                      <Input 
                         placeholder="Driver's name or car brand" 
                         className="h-9 pr-8 bg-white border-gray-200 rounded-lg"

@@ -186,7 +186,7 @@ const ToursManagementPage = () => {
 
       {/* Create / Edit Tour Dialog */}
       <Dialog open={isFormOpen} onOpenChange={(open) => { if (!open) handleFormClose(false); }}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto">
           <VisuallyHidden><DialogTitle>Tour Form</DialogTitle></VisuallyHidden>
           <TourForm tour={editingTour} onClose={handleFormClose} />
         </DialogContent>

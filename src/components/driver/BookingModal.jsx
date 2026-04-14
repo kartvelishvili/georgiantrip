@@ -8,7 +8,7 @@ const BookingModal = ({ booking, isOpen, onClose, onUpdateStatus }) => {
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-        <DialogContent className="max-w-xl">
+        <DialogContent className="max-w-[95vw] sm:max-w-xl">
             <DialogHeader>
                 <DialogTitle>Booking Details</DialogTitle>
                 <div className="flex gap-2 mt-2">

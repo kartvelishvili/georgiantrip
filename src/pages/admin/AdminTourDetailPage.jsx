@@ -113,7 +113,7 @@ const AdminTourDetailPage = () => {
 
       {/* Edit Basic Info Modal */}
       <Dialog open={isEditBasicOpen} onOpenChange={setIsEditBasicOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto">
              <VisuallyHidden><DialogTitle>Edit Tour</DialogTitle></VisuallyHidden>
              <TourForm 
                 tour={tour} 

@@ -241,7 +241,7 @@ const ToursTable = () => {
       </div>
 
       <Dialog open={isFormOpen} onOpenChange={setIsFormOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[95vw] sm:max-w-4xl max-h-[90vh] overflow-y-auto">
            <VisuallyHidden><DialogTitle>Tour Form</DialogTitle></VisuallyHidden>
            {isFormOpen && (
                <TourForm tour={editingTour} onClose={handleFormClose} />

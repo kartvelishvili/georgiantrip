@@ -81,8 +81,8 @@ const BookingsManagement = () => {
   return (
     <div className="space-y-4">
       {bookings.map((booking) => (
-        <Card key={booking.id} className="p-6">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <Card key={booking.id} className="p-4 sm:p-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div>
               <p className="text-sm text-gray-600">Customer</p>
               <p className="font-semibold">{booking.customer_first_name}</p>

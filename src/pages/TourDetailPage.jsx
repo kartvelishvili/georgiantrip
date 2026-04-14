@@ -42,7 +42,7 @@ const TourDetailPage = () => {
            {/* Left Content */}
            <div className="lg:col-span-2 space-y-12">
               <div className="space-y-6">
-                 <h1 className="text-4xl md:text-5xl font-heading font-bold text-gray-900 leading-tight">{tour.name_en}</h1>
+                 <h1 className="text-2xl sm:text-3xl md:text-5xl font-heading font-bold text-gray-900 leading-tight">{tour.name_en}</h1>
                  
                  <div className="flex flex-wrap items-center gap-6 text-sm text-gray-600">
                     <div className="flex items-center gap-2 bg-gray-50 px-3 py-1.5 rounded-full">
